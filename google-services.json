@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "597848951195",
+    "firebase_url": "https://pensumfirebase.firebaseio.com",
+    "project_id": "pensumfirebase",
+    "storage_bucket": "pensumfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597848951195:android:98cd8f51e7f4310a",
+        "android_client_info": {
+          "package_name": "com.example.jonathanlarsen.pensumfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597848951195-eq30m6dmip19r3v9f50g5qjar4noo53v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jonathanlarsen.pensumfirebase",
+            "certificate_hash": "02a9f135fb0746e001e82663c18bd25b2f7d1bc1"
+          }
+        },
+        {
+          "client_id": "597848951195-bdc4lppupn7oe8lfojsdelr318oi23ov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMhicW-1l4n8q640z9tH1nXn0-hrZ4MnA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597848951195-bdc4lppupn7oe8lfojsdelr318oi23ov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
