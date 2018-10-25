@@ -1,5 +1,7 @@
 package com.example.jonathanlarsen.pensumfirebase
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -9,6 +11,7 @@ import android.widget.EditText
 
 import android.widget.Toast
 import com.example.jonathanlarsen.pensumfirebase.R.id.*
+import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -62,6 +65,7 @@ class Login: ProgressActivity(), View.OnClickListener{
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
+                        newIntent(this)
                         //updateUI(user)
                     } else {
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -88,6 +92,7 @@ class Login: ProgressActivity(), View.OnClickListener{
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
+                        newIntent(this)
                         //updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
@@ -194,6 +199,11 @@ class Login: ProgressActivity(), View.OnClickListener{
         }
     System.out.println("Creating account")
 
+    }
+
+    fun newIntent(context: Context) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
 
