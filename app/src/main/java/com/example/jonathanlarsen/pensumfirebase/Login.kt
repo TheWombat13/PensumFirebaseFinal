@@ -23,6 +23,8 @@ class Login: ProgressActivity(), View.OnClickListener{
     private lateinit var emailEditText : EditText
     private lateinit var passEditText : EditText
 
+    final val userid = FirebaseAuth.getInstance().currentUser?.uid
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.kotlin_login)
@@ -36,9 +38,6 @@ class Login: ProgressActivity(), View.OnClickListener{
 
         emailcreatebtn.setOnClickListener(this)
         emailSignInbtn.setOnClickListener(this)
-        //Buttons
-        //emailSignInButton.setOnClickListener(this)
-        //emailCreateAccountButton.setOnClickListener(this)
 
         //Init Auth
         auth = FirebaseAuth.getInstance()
@@ -83,6 +82,8 @@ class Login: ProgressActivity(), View.OnClickListener{
         if (!validateForm()) {
             return
         }
+
+
 
         //showProgressDialog()
 
