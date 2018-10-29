@@ -73,7 +73,7 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_litterature, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_pensum, container, false);
 
         setName = view.findViewById(R.id.text_name);
         setAuthor = view.findViewById(R.id.text_author);
