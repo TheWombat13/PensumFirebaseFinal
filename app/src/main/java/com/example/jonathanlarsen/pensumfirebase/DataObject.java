@@ -31,11 +31,11 @@ public class DataObject implements Serializable {
 
     public DataObject () {
         pensumList = new ArrayList<>();
-
         pensumData = new HashMap<>();
 
-        litterature = new HashMap<>();
         litteratureListView = new HashMap<>();
+
+        litterature = new HashMap<>();
         litteratureData = new HashMap<>();
     }
 
