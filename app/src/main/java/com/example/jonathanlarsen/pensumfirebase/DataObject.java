@@ -1,6 +1,5 @@
 package com.example.jonathanlarsen.pensumfirebase;
 
-import com.example.jonathanlarsen.pensumfirebase.Litterature.LitteratureMetaModel;
 import com.example.jonathanlarsen.pensumfirebase.Litterature.LitteratureModel;
 import com.example.jonathanlarsen.pensumfirebase.PensumList.PensumModel;
 
@@ -21,7 +20,7 @@ public class DataObject implements Serializable {
     /*
     List with keys for each sub-element of the frontpage-overview
      */
-    public static List<String> pensumList;
+    public static HashMap<String, List<String>> pensumList;
 
 
     /*
@@ -29,21 +28,21 @@ public class DataObject implements Serializable {
      */
     public static HashMap<String, List<String>> litteratureListView;
     public static HashMap<String, LitteratureModel> litteratureData;
-    public static HashMap<String, LitteratureMetaModel> litteratureMetaData;
 
     /*
     List with keys for each sub-sub-element of the frontpage-overview OR
     the sub-elements of each pensum
      */
-    public static List<String> litterature;
+    public static HashMap<String, List<String>> litterature;
 
     public DataObject () {
         pensumListView = new HashMap<>();
         pensumData = new HashMap<>();
+        pensumList = new HashMap<>();
 
         litteratureListView = new HashMap<>();
         litteratureData = new HashMap<>();
-        litteratureMetaData = new HashMap<>();
+        litterature = new HashMap<>();
     }
 
 }

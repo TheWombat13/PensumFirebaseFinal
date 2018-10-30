@@ -24,23 +24,37 @@ public class MainActivity extends AppCompatActivity {
 
     public static String pensum_expand_key = "something";
 
-    private Fragment pensumlist, expanded_pensum;
-    private String choosen_pensum_to_expand;
-
-    //Varibles needs to be in main Activity!
+    //Camera keys
+    public static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     public static final String ALLOW_KEY = "ALLOWED";
     public static final String CAMERA_PREF = "camera_pref";
 
+    //Storage keys
+    public static final String PENSUM_LIST_VIEW_KEY = "PensumListview";
+    public static final String PENSUM_DATA_KEY = "PensumData";
+    public static final String LITTERATURE_LIST_VIEW_KEY = "LitteratureListview";
+    public static final String LITTERATURE_DATA_KEY = "LitteratureData";
+    public static final String LITTERATURE_META_DATA_KEY = "LitteratureMetaData";
+
     public static final String TAG = "LogTag";
+    DataObject data;
 
-    public static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
-
+    private Fragment pensumlist, expanded_pensum;
+    private String choosen_pensum_to_expand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+        Set false for testing.
+         */
+        if (false) {
+            data = new DataObject();
+        } else {
+            data = new DataObject_Test();
+        }
 
         Bundle bundle = new Bundle();
         bundle.putString(choosen_pensum_to_expand, pensum_expand_key);
