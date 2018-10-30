@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 
 import android.widget.Toast
+import com.example.jonathanlarsen.pensumfirebase.PensumList.Pensum_Fragment
 import com.example.jonathanlarsen.pensumfirebase.R.id.*
 import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -23,7 +24,7 @@ class Login: ProgressActivity(), View.OnClickListener{
     private lateinit var emailEditText : EditText
     private lateinit var passEditText : EditText
 
-    final val userid = FirebaseAuth.getInstance().currentUser?.uid
+    //final val userid = FirebaseAuth.getInstance().currentUser?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -38,9 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(!FirebaseApp.getApps(this).isEmpty()) {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
