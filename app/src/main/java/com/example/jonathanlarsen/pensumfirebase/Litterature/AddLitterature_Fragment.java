@@ -1,7 +1,5 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
-
-
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +11,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -37,15 +37,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.jonathanlarsen.pensumfirebase.DataObject.litteratureData;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.ALLOW_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.MY_PERMISSIONS_REQUEST_CAMERA;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.startInstalledAppDetailsActivity;
-
 
 public class AddLitterature_Fragment extends Fragment implements View.OnClickListener{
 
@@ -59,32 +60,36 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         final String SETTINGS_PERMISSION = "Settings";
         final String PREFERENCES_PERMISSION = "Preferences";
 
-        public int characterCounter;
-        private String inputPages = "0";
-        private String name, author, period, genre, commentary;
+        private int characterCounter;
+        private int pages;
+        private String name, author, authorYear, period, genre,
+                publisher, publishedYear, commentary;
         private String currentPhotoPath;
 
         private Frame frame;
         private TextRecognizer mTextRecognizer;
 
-        private EditText setName, setAuthor, setPeriod, setGenre, setPages, setCommentary;
+        private EditText setName, setAuthor, setAuthorYear, setPeriod, setGenre,
+                setPages, setPublisher, setPublishedYear, setCommentary;
         private Button save, ScanStorageImg, ScanNewImg;
 
         @Nullable
         @Override
-        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_add_litterature, container, false);
 
             setName = view.findViewById(R.id.text_name);
             setAuthor = view.findViewById(R.id.text_author);
+            setAuthorYear = view.findViewById(R.id.text_author_year);
             setPeriod = view.findViewById(R.id.text_period);
             setGenre = view.findViewById(R.id.text_genre);
             setPages = view.findViewById(R.id.text_pages);
+            setPublisher = view.findViewById(R.id.text_publisher);
+            setPublishedYear = view.findViewById(R.id.text_published_year);
             setCommentary = view.findViewById(R.id.text_commentary);
 
-            save = view.findViewById(R.id.save_button);
-
             ScanStorageImg = view.findViewById(R.id.ScanStorageImg_Button);
+            save = view.findViewById(R.id.save_button);
             ScanNewImg = view.findViewById(R.id.ScanImg_Button);
 
             startLayout();
@@ -96,9 +101,11 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         private void startLayout () {
 
             ScanNewImg.setText(R.string.btn_camera);
+            save.setText(R.string.btn_save);
             ScanStorageImg.setText(R.string.btn_Storage);
 
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(Objects.requireNonNull(getContext()),
+                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 if (MainActivity.getFromPref(getContext(), ALLOW_KEY)) {
                     showPermissionAlert(SETTINGS_PERMISSION);
                 } else if (ContextCompat.checkSelfPermission(getContext(),
@@ -107,7 +114,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                         != PackageManager.PERMISSION_GRANTED) {
 
                     // Should we show an explanation?
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(Objects.requireNonNull(getActivity()),
                             Manifest.permission.CAMERA)) {
                         showPermissionAlert(PREFERENCES_PERMISSION);
                     } else {
@@ -132,12 +139,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-               /* case R.id.pagesValue:
-                    Log.d(TAG, "onClick: Page holder");
-
-                    getPages();
-                    break;
-*/
                 case R.id.save_button:
                     Log.d(TAG, "onClick: Save");
 
@@ -169,7 +170,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-                    if (takePictureIntent.resolveActivity(getContext().getPackageManager()) != null) {
+                    if (takePictureIntent.resolveActivity(Objects.requireNonNull(getContext()).getPackageManager()) != null) {
 
                         File photoFile;
                         try {
@@ -198,7 +199,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     break;
 
                 default:
-                    Toast.makeText(getActivity().getApplicationContext(), "Oops! That's not how its suppose to work!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),
+                            "Oops! That's not how its suppose to work!", Toast.LENGTH_LONG).show();
                     break;
             }
 
@@ -230,7 +232,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     try {
                         Bitmap bitmap = null;
                         if (requestCode == PICK_IMAGE) {
-                            bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+                            bitmap = MediaStore.Images.Media.getBitmap(Objects.requireNonNull(getActivity()).getContentResolver(), uri);
                         }
 
                         //Todo might returns a thumbnail which is not good enough for text recogniztion?
@@ -265,14 +267,19 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         private void setVariables() {
             this.name = setName.getText().toString();
             this.author = setAuthor.getText().toString();
+            this.authorYear = setAuthorYear.getText().toString();
             this.period = setPeriod.getText().toString();
             this.genre = setGenre.getText().toString();
+            this.pages = Integer.parseInt(setPages.getText().toString());
+            this.publisher = setPublisher.getText().toString();
+            this.publishedYear = setPublishedYear.getText().toString();
             this.commentary = setCommentary.getText().toString();
 
             Log.d(TAG, "Name:" + name +
-                    " Author:" + author +
+                    " Author:" + author + " Author year:" + authorYear +
                     " Period:" + period +
-                    " Genre:" + genre +
+                    " Genre:" + genre + " Pages:" + pages +
+                    " publisher:" + publisher + " published year:" + publishedYear +
                     " Commentary:" + commentary);
         }
 
@@ -285,12 +292,11 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setScannedPages () {
-            int i = (getCharacters() * Integer.parseInt(this.inputPages)) / 2400;
-            setPages.setText(String.valueOf(i));
+            this.pages = (getCharacters() * Integer.parseInt(setPages.getText().toString())) / 2400;
         }
 
         private void closeFragment() {
-            getActivity().getSupportFragmentManager()
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager()
                     .popBackStack();
         }
 
@@ -298,7 +304,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             // Create an image file name
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = "JPEG_" + timeStamp + "_";
-            File storageDir = this.getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            File storageDir = Objects.requireNonNull(this.getActivity()).getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             File image = File.createTempFile(
                     imageFileName,  /* prefix */
                     ".jpg",   /* suffix */
@@ -314,7 +320,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
             @Override
             protected void onPreExecute () {
-                mTextRecognizer = new TextRecognizer.Builder(getActivity().getApplicationContext()).build();
+                mTextRecognizer =
+                        new TextRecognizer.Builder(Objects.requireNonNull(getActivity()).getApplicationContext()).build();
             }
 
             @Override
@@ -322,7 +329,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 Log.d(TAG, "TextRecognizer initialized");
 
                 if (!mTextRecognizer.isOperational()) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Oops ! Not able to start the text recognizer ...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),
+                            "Oops ! Not able to start the text recognizer ...", Toast.LENGTH_LONG).show();
                 } else {
                     SparseArray<TextBlock> textBlocks = mTextRecognizer.detect(frame);
 
@@ -333,11 +341,13 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                             TextBlock textBlock = textBlocks.get(textBlocks.keyAt(i));
 
                             setCharacters(textBlock.getValue().length());
-                            Log.d(TAG, textBlock.getValue() + "| Characters: " + textBlock.getValue().length());
+                            Log.d(TAG, textBlock.getValue() +
+                                    "| Characters: " + textBlock.getValue().length());
                         }
                     } else {
                         try {
-                            Toast.makeText(getActivity().getApplicationContext(), "Oops ! Something went wrong!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),
+                                    "Oops ! Something went wrong!", Toast.LENGTH_LONG).show();
                         } catch (RuntimeException e) {
                             Log.d(TAG, "RunTimeException occured in textRecognizer.");
                         }
@@ -348,14 +358,16 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
             @Override
             protected void onPostExecute(String result) {
-                Toast.makeText(getActivity(), "Text Recognition completed!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),
+                        "Text Recognition completed!", Toast.LENGTH_SHORT).show();
                 setScannedPages();
             }
         }
 
         //Alert dialogs
-        private void getPages () {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+         private void getPages () {
+            AlertDialog.Builder builder =
+                    new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
             final EditText text = new EditText(getActivity());
 
             builder.setTitle("Page").setMessage("Enter the amount of pages").setView(text);
@@ -365,8 +377,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                             final String input = text.getText().toString();
                             Log.d(TAG, "Input number:" + input);
                             if(android.text.TextUtils.isDigitsOnly(input)) {
-                                inputPages = input;
-                                setPages.setText(inputPages);
+                                pages = Integer.parseInt(input);
                             } else {
                                 //ToDo find better solution!
                                 getPages();
@@ -383,7 +394,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void showAlertMessage (String message) {
-            AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+            AlertDialog alertDialog = new AlertDialog.Builder(Objects.requireNonNull(getContext()))
                     .create();
             alertDialog.setTitle(R.string.errorTitle);
 
@@ -408,7 +419,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void showPermissionAlert(final String permission) {
-            final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+            final AlertDialog alertDialog =
+                    new AlertDialog.Builder(Objects.requireNonNull(getContext())).create();
             alertDialog.setTitle("Alert");
             alertDialog.setMessage("App needs to access the Camera.");
 
@@ -427,7 +439,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                             if (permission.equals(PREFERENCES_PERMISSION)) {
-                                ActivityCompat.requestPermissions(getActivity(),
+                                ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()),
                                         new String[]{Manifest.permission.CAMERA},
                                         MY_PERMISSIONS_REQUEST_CAMERA);
                                 ScanNewImg.setClickable(true);

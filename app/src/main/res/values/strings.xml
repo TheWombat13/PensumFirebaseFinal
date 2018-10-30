@@ -8,19 +8,26 @@
     <!-- Fragment_AddLitt EditText -->
     <string name="hint_name">Den Grimme Ælling</string>
     <string name="hint_author">H.C Andersen</string>
+    <string name="hint_author_year">1874</string>
     <string name="hint_period">Romantikken</string>
     <string name="hint_genre">Eventyr</string>
-    <string name="hint_pages">13</string>
+    <string name="hint_pages">Sider</string>
+    <string name="hint_publisher">Gyldendahls Forlag</string>
+    <string name="hint_published_year">1960</string>
     <string name="hint_commentary">Evt. kommentarer.</string>
 
     <string name="helper_name">Navn</string>
     <string name="helper_author">Forfatter</string>
+    <string name="helper_author_year">Oprindelses år</string>
     <string name="helper_period">Periode</string>
     <string name="helper_genre">Genre</string>
     <string name="helper_pages">Sider i værket</string>
+    <string name="helper_publisher">Udgivelsens forlag</string>
+    <string name="helper_published_year">Årstal for udgivelsen</string>
 
     <!-- Fragment_AddLitt Buttons -->
     <string name="btn_camera">Camera</string>
+    <string name="btn_save">Save</string>
     <string name="btn_Storage">Storage</string>
 
     <!-- Fragment ScanImg Error messages -->
