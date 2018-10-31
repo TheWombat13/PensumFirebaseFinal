@@ -16,7 +16,7 @@ public class LitteratureModel implements Serializable {
     public LitteratureModel () {
 
     }
-/*
+
     public LitteratureModel
             (String title, String author, String period, String genre,
              String publisher, int writenYear, int publishedYear, int pages) {
@@ -30,7 +30,7 @@ public class LitteratureModel implements Serializable {
         this.publishedYear = publishedYear;
         this.pages = pages;
     }
-*/
+
     public String getTitle() {
         return title;
     }
