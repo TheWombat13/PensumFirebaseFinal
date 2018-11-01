@@ -51,11 +51,9 @@ public class Litterature_Fragment extends Fragment {
 
     RecyclerView.Adapter adapter = new RecyclerView.Adapter<Litterature_Fragment.ListeelemViewholder>() {
 
-
-
         @Override
         public int getItemCount() {
-            return litteratureListView.size();
+            return litteratureListView.get(pensumList.get(pensumView)).size();
         }
 
         @NonNull
@@ -85,10 +83,12 @@ public class Litterature_Fragment extends Fragment {
             //pensumListView.get(pensumList.get( - Your pensumList - )).get( - Your Chosen listview - )
 
 
-            Log.d(TAG, "Halløjsovs" +i);
+            Log.d(TAG, "Halløjsovs" + i + " : "+ position);
 
             if (position<i) {
-                vh.title.setText(litteratureData.get(pensumList.get(pensumView)).getTitle());
+                vh.title.setText(litteratureData.get(
+                                    litteratureListView.get(
+                                            pensumList.get(pensumView)).get(position)).getTitle());
 
             }
 /*

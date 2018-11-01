@@ -70,20 +70,20 @@ public class DataObject_Test extends DataObject {
             Dansk
          */
         litteratureModel = new LitteratureModel("Test1", "", "", "", "", 1, 1, 2 );
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(0), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test2", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(1), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test3", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(2), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test4", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(3), litteratureModel);
 
 
         litteratureModel = new LitteratureModel("Test5", "", "", "", "", 1, 1, 2 );
