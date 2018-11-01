@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.example.jonathanlarsen.pensumfirebase.DataObject.litterature;
+import static com.example.jonathanlarsen.pensumfirebase.DataObject.litteratureListView;
 import static com.example.jonathanlarsen.pensumfirebase.DataObject.pensumList;
 
 public class Litterature_Fragment extends Fragment {
@@ -45,7 +45,7 @@ public class Litterature_Fragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return litterature.size();
+            return litteratureListView.size();
         }
 
         @NonNull
@@ -71,6 +71,7 @@ public class Litterature_Fragment extends Fragment {
         public void onBindViewHolder(Litterature_Fragment.ListeelemViewholder vh, int position) {
 
             //pensumListView.get(pensumList.get( - Your pensumList - )).get( - Your Chosen listview - )
+
 
             if (position<10) {
                 vh.author.setText("hej");

@@ -19,14 +19,11 @@ public class DataObject implements Serializable {
 
     /*
     litteratureListView Hashmap <pensumList, litterature>
-     */
-    public static HashMap<String, List<String>> litteratureListView;
 
-    /*
     List with keys for each sub-element of the frontpage-pensumList OR
     the sub-elements of each pensum
      */
-    public static HashMap<String, List<String>> litterature;
+    public static HashMap<String, List<String>> litteratureListView;
     public static HashMap<String, LitteratureModel> litteratureData;
 
     public DataObject () {
@@ -34,8 +31,6 @@ public class DataObject implements Serializable {
         pensumData = new HashMap<>();
 
         litteratureListView = new HashMap<>();
-
-        litterature = new HashMap<>();
         litteratureData = new HashMap<>();
     }
 

@@ -28,10 +28,6 @@ import static com.example.jonathanlarsen.pensumfirebase.DataObject.pensumList;
 
 public class Pensum_Fragment extends Fragment {
 
-    public static String pensum;
-    public static int pensumPosition;
-
-
     RecyclerView recyclerView;
 
 
@@ -114,7 +110,7 @@ public class Pensum_Fragment extends Fragment {
             if (position<pensumList.size()) {
                 vh.title.setText(pensumList.get(position));
                 vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
-//                vh.pages.setText(pensumData.get(pensumList.get(position)).getPages());
+                vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages()));
             }
 /*
             if (position > 0) vh.title.append(" (flyt op)");
@@ -155,14 +151,14 @@ public class Pensum_Fragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            pensumPosition = getAdapterPosition();
-            pensum = pensumList.get(pensumPosition);
-            Toast.makeText(v.getContext(), "Klik på " + pensum, Toast.LENGTH_SHORT).show();
-            System.out.println(pensumPosition);
-
-
+            Bundle bundle = new Bundle();
+            bundle.putInt("fuck", getAdapterPosition());
 
             Litterature_Fragment nextFrag= new Litterature_Fragment();
+            nextFrag.setArguments(bundle);
+
+            Toast.makeText(v.getContext(), "OnClick: list-Element", Toast.LENGTH_SHORT).show();
+
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MiddleContainer, nextFrag,"findThisFragment")
                     .addToBackStack(null)

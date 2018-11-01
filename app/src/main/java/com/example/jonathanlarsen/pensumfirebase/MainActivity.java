@@ -29,13 +29,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String ALLOW_KEY = "ALLOWED";
     public static final String CAMERA_PREF = "camera_pref";
 
-    //Storage keys
-    public static final String PENSUM_LIST_VIEW_KEY = "PensumListview";
-    public static final String PENSUM_DATA_KEY = "PensumData";
-    public static final String LITTERATURE_LIST_VIEW_KEY = "LitteratureListview";
-    public static final String LITTERATURE_DATA_KEY = "LitteratureData";
-    public static final String LITTERATURE_META_DATA_KEY = "LitteratureMetaData";
-
     public static final String TAG = "LogTag";
     DataObject data;
 
@@ -124,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        super.onBackPressed();
     }
 
     //ToDo Look through this.
