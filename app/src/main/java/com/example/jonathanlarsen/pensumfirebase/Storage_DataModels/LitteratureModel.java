@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Litterature;
+package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
 
 import java.io.Serializable;
 

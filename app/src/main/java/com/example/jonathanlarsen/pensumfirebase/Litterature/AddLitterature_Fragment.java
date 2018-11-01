@@ -42,7 +42,6 @@ import java.util.Objects;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import static android.app.Activity.RESULT_OK;
-import static com.example.jonathanlarsen.pensumfirebase.DataObject.litteratureData;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.ALLOW_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.MY_PERMISSIONS_REQUEST_CAMERA;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;

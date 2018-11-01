@@ -1,7 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase;
-
-import com.example.jonathanlarsen.pensumfirebase.Litterature.LitteratureModel;
-import com.example.jonathanlarsen.pensumfirebase.PensumList.PensumModel;
+package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
 
 import java.io.Serializable;
 import java.util.ArrayList;
