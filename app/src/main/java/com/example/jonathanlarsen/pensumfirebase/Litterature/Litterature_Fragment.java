@@ -1,6 +1,7 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.example.jonathanlarsen.pensumfirebase.DataObject.litteratureData;
 import static com.example.jonathanlarsen.pensumfirebase.DataObject.litteratureListView;
 import static com.example.jonathanlarsen.pensumfirebase.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 
 public class Litterature_Fragment extends Fragment {
 
     RecyclerView recyclerView;
+
+    private int pensumView;
+    private int i;
 
 
     @Override
@@ -33,6 +39,10 @@ public class Litterature_Fragment extends Fragment {
         //recyclerView.setOnClickListener(this); //FINDES IKKE - i stedet skal man lytte efter onClick på de enkelte vieww
         recyclerView.setAdapter(adapter);
 
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            pensumView = bundle.getInt("fuck", 0);
+        }
 
         return view;
     }
@@ -54,6 +64,8 @@ public class Litterature_Fragment extends Fragment {
 
             Litterature_Fragment.ListeelemViewholder vh;
 
+            i = litteratureListView.get(pensumList.get(pensumView)).size();
+
 
             View view = getLayoutInflater().inflate(R.layout.litteraturelist_item, parent, false);
             vh = new Litterature_Fragment.ListeelemViewholder(view);
@@ -73,8 +85,10 @@ public class Litterature_Fragment extends Fragment {
             //pensumListView.get(pensumList.get( - Your pensumList - )).get( - Your Chosen listview - )
 
 
-            if (position<10) {
-                vh.author.setText("hej");
+            Log.d(TAG, "Halløjsovs" +i);
+
+            if (position<i) {
+                vh.title.setText(litteratureData.get(pensumList.get(pensumView)).getTitle());
 
             }
 /*
@@ -111,9 +125,9 @@ public class Litterature_Fragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            final int position = getAdapterPosition();
-            final String pensum = pensumList.get(position);
-            Toast.makeText(v.getContext(), "Klik på " + pensum, Toast.LENGTH_SHORT).show();
+            //final int position = getAdapterPosition();
+            //final String pensum = pensumList.get(position);
+            //Toast.makeText(v.getContext(), "Klik på " + pensum, Toast.LENGTH_SHORT).show();
 
 /*
 
