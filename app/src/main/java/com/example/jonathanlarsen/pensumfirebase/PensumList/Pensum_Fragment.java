@@ -7,15 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jonathanlarsen.pensumfirebase.DataObject;
 import com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
-
-import java.security.Key;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -55,7 +48,7 @@ public class Pensum_Fragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return pensumList.size();
+            return pensumList.size()+1;
         }
 
         @NonNull
@@ -88,6 +81,7 @@ public class Pensum_Fragment extends Fragment {
                 //vh.pagesToGo (TextView) view.findViewById(R.id.);
 
 
+
                 //vh.title.setOnClickListener(vh);
                 //vh.teacher.setOnClickListener(vh);
                 //vh.pages.setOnClickListener(vh);
@@ -102,16 +96,21 @@ public class Pensum_Fragment extends Fragment {
 
         @Override
         public void onBindViewHolder(ListeelemViewholder vh, int position) {
-
-
-
             //pensumListView.get(pensumList.get( - Your pensumList - )).get( - Your Chosen listview - )
 
-            if (position<pensumList.size()) {
-                vh.title.setText(pensumList.get(position));
-                vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
-                vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages()));
+            if (position<=pensumList.size()) {
+                if(position<pensumList.size()) {
+                    vh.title.setText(pensumList.get(position));
+                    vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
+                    vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages()));
+                }
+                if (position == pensumList.size()) {
+                    vh.title.setText("ADD");
+                }
             }
+
+
+
 /*
             if (position > 0) vh.title.append(" (flyt op)");
 
