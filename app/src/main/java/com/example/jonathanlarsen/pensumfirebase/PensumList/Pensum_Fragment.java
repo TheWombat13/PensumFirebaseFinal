@@ -7,26 +7,29 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonathanlarsen.pensumfirebase.DataObject;
 import com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.example.jonathanlarsen.pensumfirebase.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.DataObject.pensumList;
+
 
 public class Pensum_Fragment extends Fragment {
 
-    String[] landeArray = {"Danmark", "Norge", "Sverige", "Island", "Færøerne", "Finland",
-            "Tyskland", "Østrig", "Belgien", "Holland", "Italien", "Grækenland",
-            "Frankrig", "Spanien", "Portugal", "Nepal", "Indien", "Kina", "Japan", "Thailand"};
-    // Vi laver en arrayliste så vi kan fjerne/indsætte elementer
-    ArrayList<String> lande = new ArrayList<>(Arrays.asList(landeArray));
-
+    public static String pensum;
+    public static int pensumPosition;
 
 
     RecyclerView recyclerView;
@@ -51,11 +54,12 @@ public class Pensum_Fragment extends Fragment {
 
     RecyclerView.Adapter adapter = new RecyclerView.Adapter<ListeelemViewholder>() {
 
+
         private int count = 0;
 
         @Override
         public int getItemCount() {
-            return lande.size()+1;
+            return pensumList.size();
         }
 
         @NonNull
@@ -63,9 +67,10 @@ public class Pensum_Fragment extends Fragment {
         public ListeelemViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             ListeelemViewholder vh;
-            System.out.print("hej"+count);
 
+//            System.out.print("hej"+count);
 
+/*
             if (count >= lande.size()) {
 
                 View view = getLayoutInflater().inflate(R.layout.pensumlist_item_add, parent, false);
@@ -76,8 +81,8 @@ public class Pensum_Fragment extends Fragment {
                 //return vh;
                 System.out.print("hej"+count);
                 return vh;
-
-            } else {
+*/
+//            } else {
                 View view = getLayoutInflater().inflate(R.layout.pensumlist_item, parent, false);
                 vh = new ListeelemViewholder(view);
 
@@ -91,11 +96,11 @@ public class Pensum_Fragment extends Fragment {
                 //vh.teacher.setOnClickListener(vh);
                 //vh.pages.setOnClickListener(vh);
 
-                count +=1;
-                System.out.print("hej"+count);
+//                count +=1;
+                //System.out.print("hej"+count);
 
                 return vh;
-            }
+  //          }
 
         }
 
@@ -103,11 +108,13 @@ public class Pensum_Fragment extends Fragment {
         public void onBindViewHolder(ListeelemViewholder vh, int position) {
 
 
-            if (position<lande.size()) {
-               // vh.title.setText(lande.get(position));
-               // final String string = lande.get(position);
-              //  onBindViewHolder();
-                System.out.println("hej"+lande.size());
+
+            //pensumListView.get(pensumList.get( - Your pensumList - )).get( - Your Chosen listview - )
+
+            if (position<pensumList.size()) {
+                vh.title.setText(pensumList.get(position));
+                vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
+//                vh.pages.setText(pensumData.get(pensumList.get(position)).getPages());
             }
 /*
             if (position > 0) vh.title.append(" (flyt op)");
@@ -148,9 +155,12 @@ public class Pensum_Fragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            final int position = getAdapterPosition();
-            final String landenavn = lande.get(position);
-            Toast.makeText(v.getContext(), "Klik på " + landenavn, Toast.LENGTH_SHORT).show();
+            pensumPosition = getAdapterPosition();
+            pensum = pensumList.get(pensumPosition);
+            Toast.makeText(v.getContext(), "Klik på " + pensum, Toast.LENGTH_SHORT).show();
+            System.out.println(pensumPosition);
+
+
 
             Litterature_Fragment nextFrag= new Litterature_Fragment();
             getActivity().getSupportFragmentManager().beginTransaction()
