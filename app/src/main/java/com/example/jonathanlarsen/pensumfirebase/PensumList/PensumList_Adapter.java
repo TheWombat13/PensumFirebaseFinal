@@ -14,9 +14,9 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class PensumList_Adapter extends ArrayAdapter<PensumModel> {
+public class PensumList_Adapter {
 
-
+/*
     private Context context;
 
     public PensumList_Adapter(@NonNull Context context, int resource, List<PensumModel> items) {
@@ -49,4 +49,5 @@ public class PensumList_Adapter extends ArrayAdapter<PensumModel> {
         holder.pensumView.setText(pensum.getTitle() + "");
         return convertView;
     }
+    */
 }
