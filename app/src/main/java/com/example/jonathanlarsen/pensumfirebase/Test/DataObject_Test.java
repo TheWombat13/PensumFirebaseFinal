@@ -1,12 +1,12 @@
-package com.example.jonathanlarsen.pensumfirebase;
+package com.example.jonathanlarsen.pensumfirebase.Test;
 
 import android.util.Log;
 
-import com.example.jonathanlarsen.pensumfirebase.Litterature.LitteratureModel;
-import com.example.jonathanlarsen.pensumfirebase.PensumList.PensumModel;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
@@ -87,49 +87,50 @@ public class DataObject_Test extends DataObject {
 
 
         litteratureModel = new LitteratureModel("Test5", "", "", "", "", 1, 1, 2 );
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+
 
         litteratureModel = new LitteratureModel("Test6", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test7", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test8", "", "", "", "", 1, 1, 2 );
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test9", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test10", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test11", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test12", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
 
         litteratureModel = new LitteratureModel("Test13", "", "", "", "", 1, 1, 2 );
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test14", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test15", "", "", "", "", 1, 2, 3);
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
+        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
         Log.d(TAG, "So far so fucking good!");
     }

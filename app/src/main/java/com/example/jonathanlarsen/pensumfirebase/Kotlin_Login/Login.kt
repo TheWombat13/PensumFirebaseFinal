@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase
+package com.example.jonathanlarsen.pensumfirebase.Kotlin_Login
 
 import android.content.Context
 import android.content.Intent
@@ -10,11 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 
 import android.widget.Toast
-import com.example.jonathanlarsen.pensumfirebase.PensumList.Pensum_Fragment
-import com.example.jonathanlarsen.pensumfirebase.R.id.*
-import com.firebase.ui.auth.data.model.User
+import com.example.jonathanlarsen.pensumfirebase.MainActivity
+import com.example.jonathanlarsen.pensumfirebase.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 
 class Login: ProgressActivity(), View.OnClickListener{

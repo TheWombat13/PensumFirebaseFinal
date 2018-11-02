@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.PensumList;
+package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
 
 public class PensumModel {
 

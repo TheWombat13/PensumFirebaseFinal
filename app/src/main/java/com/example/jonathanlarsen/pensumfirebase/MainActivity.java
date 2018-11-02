@@ -11,9 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 
-import com.example.jonathanlarsen.pensumfirebase.PensumList.Pensum_Fragment;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
+import com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment;
+import com.example.jonathanlarsen.pensumfirebase.Test.DataObject_Test;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,15 +22,31 @@ import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String pensum_expand_key = "something";
+    /*
+     * Test key. Value needs to be set for testing with predetermined data.
+     *      True == live version
+     *      False == Test version
+     * & Variables for testing and logging.
+     */
+    private Boolean Test_disabled = false;
 
-    //Camera keys
+    public static final String TAG = "LOG_TAG";
+    DataObject data;
+
+    /*
+     * Camera keys for permission to use the camera.
+     */
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     public static final String ALLOW_KEY = "ALLOWED";
-    public static final String CAMERA_PREF = "camera_pref";
+    public static final String CAMERA_PREF = "CAMERA_PREF";
 
-    public static final String TAG = "LogTag";
-    DataObject data;
+    /*
+     * Various keys for accessing data
+     */
+    public static final String PENSUM_BUNDLE_KEY = "CURRENT_POSITION";
+
+
+    public static String pensum_expand_key = "something";
 
     private Fragment pensumlist, expanded_pensum;
     private String choosen_pensum_to_expand;
@@ -41,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*
-        Set false for testing.
+         * Boolean to determine data & storage.
          */
-        if (false) {
+        if (Test_disabled) {
             data = new DataObject();
         } else {
             data = new DataObject_Test();
@@ -59,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Method needs to be in main Activity!
+    /*
+     * Shared preferences for saving camera permission
+     */
     public static void saveToPreferences(MainActivity context, String key, Boolean allowed) {
         SharedPreferences myPrefs = context.getSharedPreferences(CAMERA_PREF,
                 Context.MODE_PRIVATE);
