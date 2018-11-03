@@ -17,10 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class Pensum_Fragment extends Fragment {
 
-    private RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
     private PensumList_Adapter adapter;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

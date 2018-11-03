@@ -7,6 +7,10 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+/*
+ * Method used in Litterature_Fragment
+ */
+
 public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
     private OnItemClickListener mListener;
 
@@ -44,8 +48,12 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
         return false;
     }
 
-    @Override public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) { }
+    @Override public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) {
+
+    }
 
     @Override
-    public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){}
+    public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){
+
+    }
 }

@@ -24,8 +24,7 @@
         android:id="@+id/ADD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+        android:layout_centerInParent="true"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -41,10 +40,21 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pagesToGo"
+                android:id="@+id/spacing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/pages"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/backslash"/>
+
+            <TextView
+                android:id="@+id/pagesToGo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/spacing"
                 android:textAppearance="?android:attr/textAppearanceButton"
                 android:textStyle="bold"/>
 
@@ -53,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/pagesToGo"
+                android:layout_marginStart="5dp"
                 android:src="@android:drawable/ic_menu_delete" />
         </RelativeLayout>
 

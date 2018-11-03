@@ -1,17 +1,11 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter;
-import com.example.jonathanlarsen.pensumfirebase.Element_ViewHolders.LitteratureListElementViewHolder;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.core.content.ContextCompat;
@@ -21,11 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 
 public class Litterature_Fragment extends Fragment {
 
-    private RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
     private Litterature_Adapter adapter;
 
     public static int pensumView;
@@ -41,11 +34,17 @@ public class Litterature_Fragment extends Fragment {
         adapter = new Litterature_Adapter();
         recyclerView.setAdapter(adapter);
 
+        /*
+         * This method is apperently the correct way to do it, but it comes with a varity of issues
+         * which is not easily fixable and should be used with caution.
+         *
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(),
                 recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //ToDO add onClick for litterature elements.
+                /*
+                 * add onClick for litterature elements.
+                 *
 
             }
 
@@ -53,15 +52,17 @@ public class Litterature_Fragment extends Fragment {
             public void onLongItemClick(View view, int position) {
                 Log.d(TAG, "OnLongClick: " + view.getId());
 
-                //ToDO doesn't work yet
+                /*
+                 * viewHolder.delete Checkbox is not responding correctly, its slow, require multiple clicks etc.
+                 *
                 for (int i = 0; i < recyclerView.getChildCount(); i++) {
                     LitteratureListElementViewHolder viewHolder =
                             (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-                    viewHolder.delete.setVisibility(View.GONE);
+                    viewHolder.delete.setVisibility(View.VISIBLE);
                 }
                 Toast.makeText(view.getContext(), "Hej", Toast.LENGTH_SHORT).show();
             }
-        }));
+        }));*/
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {

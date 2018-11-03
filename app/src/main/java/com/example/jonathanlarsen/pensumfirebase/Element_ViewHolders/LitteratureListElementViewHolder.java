@@ -1,12 +1,17 @@
 package com.example.jonathanlarsen.pensumfirebase.Element_ViewHolders;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder {
+import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.recyclerView;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
+
+public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
     public TextView title;
     public TextView author;
@@ -21,5 +26,26 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder {
 
     public LitteratureListElementViewHolder(View itemView) {
         super(itemView);
+        itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        Log.d(TAG, "OnLongClick: " + view.getId());
+
+        //ToDo viewHolder.delete Checkbox is not responding correctly, its slow, require multiple clicks etc.
+        for (int i = 0; i < recyclerView.getChildCount(); i++) {
+            LitteratureListElementViewHolder viewHolder =
+                    (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+            viewHolder.delete.setVisibility(View.VISIBLE);
+        }
+        Toast.makeText(view.getContext(), "Hej", Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

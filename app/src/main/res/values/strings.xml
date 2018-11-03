@@ -4,6 +4,7 @@
     <!-- Generic messages -->
     <string name="ToDo">TODO</string>
     <string name="OK_text">OK</string>
+    <string name="backslash">/</string>
 
     <!-- Fragment_AddLitt EditText -->
     <string name="hint_name">Den Grimme Ælling</string>

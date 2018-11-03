@@ -24,9 +24,9 @@ public class DataObject_Test extends DataObject {
         /*
         Initializing the List to be loaded as frontpage listview with each needed pensum
          */
-        pensumList.add(0, "Kunst-Historie");
-        pensumList.add(1, "Litteraturhistorie 2");
-        pensumList.add(2, "Dansk");
+        pensumList.add("Kunst-Historie");
+        pensumList.add("Litteraturhistorie 2");
+        pensumList.add("Dansk");
 
         /*
         Setting headers for each pensum created, here we set the headers as:
