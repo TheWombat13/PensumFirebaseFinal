@@ -33,6 +33,14 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
         vh.title = view.findViewById(R.id.title);
         vh.author = view.findViewById(R.id.author);
+        vh.period = view.findViewById(R.id.period);
+        vh.genre = view.findViewById(R.id.genre);
+        vh.publisher = view.findViewById(R.id.publisher);
+        vh.publishedYear = view.findViewById(R.id.published_year);
+        vh.writenYear = view.findViewById(R.id.written_year);
+        vh.pages = view.findViewById(R.id.littarature_pages);
+
+        vh.delete = view.findViewById(R.id.delete_checkbox);
 
 
         return vh;
@@ -44,16 +52,43 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
         //ToDo Doesn't add the 4th title. Shows "Test2" instead of "Test3"
 
+
         if (position<i) {
             vh.title.setText(litteratureData.get(
                     litteratureListView.get(
                             pensumList.get(pensumView)).get(position)).getTitle());
+            vh.author.setText(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getAuthor());
+            vh.period.setText(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getPeriod());
+            vh.genre.setText(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getGenre());
+            vh.publisher.setText(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getPublisher());
+            //ToDo laver fejl
+//            vh.publishedYear.setText(litteratureData.get(
+//                    litteratureListView.get(
+//                            pensumList.get(pensumView)).get(position)).getPublishedYear());
+//            vh.writenYear.setText(litteratureData.get(
+//                    litteratureListView.get(
+//                            pensumList.get(pensumView)).get(position)).getWritenYear());
+//            vh.pages.setText(litteratureData.get(
+//                    litteratureListView.get(
+//                            pensumList.get(pensumView)).get(position)).getPages());
+
 
         }
+
     }
 
     @Override
     public int getItemCount() {
         return litteratureListView.get(pensumList.get(pensumView)).size();
     }
+
+
 }

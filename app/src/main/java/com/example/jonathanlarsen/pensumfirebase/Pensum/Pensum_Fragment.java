@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import com.example.jonathanlarsen.pensumfirebase.Adapter.PensumList_Adapter;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,9 +21,12 @@ public class Pensum_Fragment extends Fragment {
     private PensumList_Adapter adapter;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.fragment_pensum_, container, false);
 
         recyclerView = view.findViewById(R.id.listview_pensum);
@@ -30,8 +35,14 @@ public class Pensum_Fragment extends Fragment {
         adapter = new PensumList_Adapter();
         recyclerView.setAdapter(adapter);
 
+        recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
+                DividerItemDecoration.VERTICAL));
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this.getActivity(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.pensum_divider));
+
 
         return view;
     }
-
+    
 }
