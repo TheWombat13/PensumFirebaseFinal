@@ -28,7 +28,10 @@ public class PensumList_Adapter extends RecyclerView.Adapter {
         vh.title = view.findViewById(R.id.title_view);
         vh.teacher = view.findViewById(R.id.teacher_view);
         vh.pages = view.findViewById(R.id.pages);
-        //ToDo: vh.pagesToGo = view.findViewById(R.id.);
+        vh.pagesToGo = view.findViewById(R.id.pagesToGo);
+        vh.delete = view.findViewById(R.id.deletebtn);
+        vh.delete.setVisibility(View.GONE);
+
 
         return vh;
     }
@@ -39,7 +42,8 @@ public class PensumList_Adapter extends RecyclerView.Adapter {
             if(position<pensumList.size()) {
                 vh.title.setText(pensumList.get(position));
                 vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
-                vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages()));
+                vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages())+"/");
+                vh.pagesToGo.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPagesToGo()));
             }
             if (position == pensumList.size()) {
                 vh.title.setText("ADD");
@@ -49,6 +53,6 @@ public class PensumList_Adapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return pensumList.size()+1;
+        return pensumList.size();
     }
 }

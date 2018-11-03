@@ -69,19 +69,19 @@ public class DataObject_Test extends DataObject {
             Litteraturhistorie 2
             Dansk
          */
-        litteratureModel = new LitteratureModel("Test1", "", "", "", "", 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Test1", "Dan Jørgensen", "Romantikken", "Lyrik", "Gyldendahl", 1, 1, 2 );
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(0), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test2", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test2", "asdf", "asdf", "asdf", "sadf", 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(1), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test3", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test3", "sad", "asdf", "asfd", "asdf", 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(2), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test4", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test4", "asf", "asdf", "sadf", "sadf", 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(3), litteratureModel);
 

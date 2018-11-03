@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:padding="10dp">
 
     <TextView
@@ -21,6 +21,49 @@
         android:layout_marginTop="5dp"
         android:textColor="@android:color/black" />
 
+    <TextView
+        android:id="@+id/period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/title"/>
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/author"/>
+
+    <TextView
+        android:id="@+id/publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/author"/>
+
+    <TextView
+        android:id="@+id/published_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/publisher"/>
+
+    <TextView
+        android:id="@+id/written_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/publisher"/>
+
+    <TextView
+        android:id="@+id/littarature_pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/written_year"
+        />
+
+    <CheckBox
+        android:id="@+id/delete_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

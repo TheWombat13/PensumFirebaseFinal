@@ -1,25 +1,20 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
-import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 
 public class Litterature_Fragment extends Fragment {
 
@@ -44,7 +39,15 @@ public class Litterature_Fragment extends Fragment {
             pensumView = bundle.getInt(PENSUM_BUNDLE_KEY, 0);
         }
 
+        recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
+                DividerItemDecoration.VERTICAL));
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this.getActivity(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.litterature_divider));
+
         return view;
     }
+
+
 
 }

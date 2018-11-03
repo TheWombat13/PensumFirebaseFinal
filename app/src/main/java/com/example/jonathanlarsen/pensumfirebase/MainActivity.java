@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String ALLOW_KEY = "ALLOWED";
     public static final String CAMERA_PREF = "CAMERA_PREF";
 
+
     /*
      * Various keys for accessing data
      */
@@ -51,10 +52,20 @@ public class MainActivity extends AppCompatActivity {
     private Fragment pensumlist, expanded_pensum;
     private String choosen_pensum_to_expand;
 
+    private static Context mContext;
+    public static Context getContext() {
+        return mContext;
+    }
+
+    public static void setContext(Context mContext1) {
+        mContext = mContext1;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         /*
          * Boolean to determine data & storage.
@@ -74,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 commit();
 
     }
+
+
 
     /*
      * Shared preferences for saving camera permission
