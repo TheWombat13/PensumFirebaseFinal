@@ -15,8 +15,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
 
+import java.io.IOException;
+
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
 
 public class AddPensum_Fragment extends Fragment implements View.OnClickListener{
 
@@ -26,6 +39,7 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
     private String title, teacher;
 
+    //ToDo Doesn't support the variables "pages" & "pagesToGo"
     private EditText setTitle, setTeacher;
     private Button save;
 
@@ -77,8 +91,29 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
         this.title = setTitle.getText().toString();
         this.teacher = setTeacher.getText().toString();
 
+        savePensum();
+
         Log.d(TAG, "Name:" + title +
                 " Author:" + teacher);
+    }
+
+    /*
+     * Serializing of data to mobile device
+     */
+    private void savePensum() {
+
+        PensumModel temp = new PensumModel(this.title, this.teacher, 0, 1200);
+        //ToDo get the proper pensumList position
+        pensumData.put(pensumList.get(0), temp);
+        pensumList.add(this.title);
+
+        try {
+            InternalStorage.writeObject(getContext(), PENSUM_LIST_OBJECT_KEY, pensumList);
+            InternalStorage.writeObject(getContext(), PENSUMDATA_OBJECT_KEY, pensumData);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void closeFragment() {
@@ -96,9 +131,6 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
                 alertDialog.setMessage(getText(R.string.errorNameMissing));
                 break;
-            case "textRecognizerError":
-
-                alertDialog.setMessage(getText(R.string.errorTextRecognizer));
             default:
                 alertDialog.setMessage("Error didn't get catched!");
         }
