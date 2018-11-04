@@ -6,6 +6,12 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <!-- ToDo apply style for toolbar -->
+    <!-- Toolbar support
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /> -->
 
     <FrameLayout
         android:id="@+id/MiddleContainer"

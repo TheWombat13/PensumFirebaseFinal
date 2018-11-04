@@ -24,6 +24,7 @@ import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String ALLOW_KEY = "ALLOWED";
     public static final String CAMERA_PREF = "CAMERA_PREF";
 
-
     /*
      * Various keys for accessing data
      */
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public static String pensum_expand_key = "something";
 
+    public Toolbar toolbar;
     private Fragment pensumlist_fragment, expanded_pensum;
     private String choosen_pensum_to_expand;
 
@@ -75,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+         * Toolbar support
+         */
+        /*toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().show();*/
 
         /*
          * Boolean to determine data & storage.
@@ -164,6 +172,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

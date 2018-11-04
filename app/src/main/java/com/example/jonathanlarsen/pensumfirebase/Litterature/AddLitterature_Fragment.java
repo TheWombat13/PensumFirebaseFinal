@@ -327,7 +327,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 InternalStorage.writeObject(getContext(), LITTERATUREDATA_OBJECT_KEY, litteratureData);
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG);
+                Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
             }
         }
 

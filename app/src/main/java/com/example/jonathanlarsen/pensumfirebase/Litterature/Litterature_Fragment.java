@@ -12,6 +12,8 @@ import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStor
 
 import java.io.IOException;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,6 +30,7 @@ public class Litterature_Fragment extends Fragment {
 
     public static RecyclerView recyclerView;
     private Litterature_Adapter adapter;
+    private Toolbar toolbar;
 
     public static int pensumView;
 
@@ -41,6 +44,13 @@ public class Litterature_Fragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new Litterature_Adapter();
         recyclerView.setAdapter(adapter);
+
+        /*
+         * Toolbar support
+         */
+        /*toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();*/
 
         /*
          * This method is apperently the correct way to do it, but it comes with a varity of issues

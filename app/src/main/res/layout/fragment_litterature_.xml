@@ -3,7 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Litterature.Litterature_Fragment">
+    tools:context=".Litterature.Litterature_Fragment"
+    android:orientation="vertical">
+
+    <!-- ToDo apply style for toolbar -->
+    <!-- Toolbar support
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /> -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listview_litterature"

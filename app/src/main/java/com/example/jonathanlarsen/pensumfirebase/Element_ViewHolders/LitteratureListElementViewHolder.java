@@ -39,13 +39,12 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
     public boolean onLongClick(View view) {
         Log.d(TAG, "OnLongClick: " + view.getId());
 
-        //ToDo viewHolder.delete Checkbox is not responding correctly, its slow, require multiple clicks etc.
         for (int i = 0; i < recyclerView.getChildCount(); i++) {
             LitteratureListElementViewHolder viewHolder =
                     (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             viewHolder.delete.setVisibility(View.VISIBLE);
         }
-        Toast.makeText(view.getContext(), "Hej", Toast.LENGTH_SHORT).show();
+        Toast.makeText(view.getContext(), "Delete state shown", Toast.LENGTH_SHORT).show();
         return false;
     }
 }

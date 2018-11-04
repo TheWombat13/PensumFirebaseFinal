@@ -124,7 +124,7 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
             InternalStorage.writeObject(context, PENSUMDATA_OBJECT_KEY, pensumData);
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(context, "Save failed!", Toast.LENGTH_LONG);
+            Toast.makeText(context, "Save failed!", Toast.LENGTH_LONG).show();
         }
     }
 
