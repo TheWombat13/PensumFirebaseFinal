@@ -71,15 +71,6 @@ public class MainActivity extends AppCompatActivity {
     private Fragment pensumlist_fragment, expanded_pensum;
     private String choosen_pensum_to_expand;
 
-    private static Context mContext;
-    public static Context getContext() {
-        return mContext;
-    }
-
-    public static void setContext(Context mContext1) {
-        mContext = mContext1;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             data = new DataObject_Test();
         }
 
+        //ToDo What is this suppose to do?
         Bundle bundle = new Bundle();
         bundle.putString(choosen_pensum_to_expand, pensum_expand_key);
 

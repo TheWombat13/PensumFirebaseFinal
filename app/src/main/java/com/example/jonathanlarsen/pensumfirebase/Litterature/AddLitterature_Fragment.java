@@ -272,7 +272,13 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setVariables() {
-            this.name = setName.getText().toString();
+            if (setName.getText().toString() == null || setName.getText().toString().equals("")) {
+                setName.setHint(R.string.hint_name_required);
+                setName.requestFocus();
+                return;
+            } else {
+                this.name = setName.getText().toString();
+            }
             this.author = setAuthor.getText().toString();
             this.authorYear = setAuthorYear.getText().toString();
             this.period = setPeriod.getText().toString();

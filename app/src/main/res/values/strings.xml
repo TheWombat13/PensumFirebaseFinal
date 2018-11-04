@@ -10,6 +10,7 @@
 
     <!-- Fragment_AddLitt EditText -->
     <string name="hint_name">Den Grimme Ælling</string>
+    <string name="hint_name_required">Indtast venligst en titel</string>
     <string name="hint_author">H.C Andersen</string>
     <string name="hint_author_year">1874</string>
     <string name="hint_period">Romantikken</string>
