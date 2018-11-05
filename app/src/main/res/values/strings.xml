@@ -4,9 +4,13 @@
     <!-- Generic messages -->
     <string name="ToDo">TODO</string>
     <string name="OK_text">OK</string>
+    <string name="NO_text">Nej</string>
+    <string name="YES_text">Ja</string>
+    <string name="backslash">/</string>
 
     <!-- Fragment_AddLitt EditText -->
     <string name="hint_name">Den Grimme Ælling</string>
+    <string name="hint_name_required">Indtast venligst en titel</string>
     <string name="hint_author">H.C Andersen</string>
     <string name="hint_author_year">1874</string>
     <string name="hint_period">Romantikken</string>

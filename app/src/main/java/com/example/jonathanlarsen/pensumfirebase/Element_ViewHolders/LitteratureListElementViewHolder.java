@@ -1,11 +1,15 @@
 package com.example.jonathanlarsen.pensumfirebase.Element_ViewHolders;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.recyclerView;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 
 public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
@@ -20,8 +24,6 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
 
     public CheckBox delete;
 
-
-
     public LitteratureListElementViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
@@ -31,20 +33,18 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
     @Override
     public void onClick(View v) {
 
-        }
+    }
 
-    /*
-    * onLongClick for enabling delete and possibly editing.
-    */
     @Override
-    public boolean onLongClick(View v) {
+    public boolean onLongClick(View view) {
+        Log.d(TAG, "OnLongClick: " + view.getId());
 
-        //ToDo er kun synlig på en celle ad gangen! Visibility på checkbox er sat i xml pt.
-        delete.setVisibility(View.VISIBLE);
-
-        Toast.makeText(v.getContext(), "Hej", Toast.LENGTH_SHORT).show();
-
-
-        return true;
+        for (int i = 0; i < recyclerView.getChildCount(); i++) {
+            LitteratureListElementViewHolder viewHolder =
+                    (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+            viewHolder.delete.setVisibility(View.VISIBLE);
+        }
+        Toast.makeText(view.getContext(), "Delete state shown", Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

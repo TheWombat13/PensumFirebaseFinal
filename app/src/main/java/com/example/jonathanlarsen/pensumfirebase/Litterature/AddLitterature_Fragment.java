@@ -29,6 +29,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.MainActivity;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
@@ -37,15 +39,21 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Objects;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import static android.app.Activity.RESULT_OK;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.ALLOW_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.MY_PERMISSIONS_REQUEST_CAMERA;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.startInstalledAppDetailsActivity;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
 
 public class AddLitterature_Fragment extends Fragment implements View.OnClickListener{
 
@@ -264,7 +272,13 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setVariables() {
-            this.name = setName.getText().toString();
+            if (setName.getText().toString() == null || setName.getText().toString().equals("")) {
+                setName.setHint(R.string.hint_name_required);
+                setName.requestFocus();
+                return;
+            } else {
+                this.name = setName.getText().toString();
+            }
             this.author = setAuthor.getText().toString();
             this.authorYear = setAuthorYear.getText().toString();
             this.period = setPeriod.getText().toString();
@@ -273,6 +287,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             this.publisher = setPublisher.getText().toString();
             this.publishedYear = setPublishedYear.getText().toString();
             this.commentary = setCommentary.getText().toString();
+
+            saveLitterature();
 
             Log.d(TAG, "Name:" + name +
                     " Author:" + author + " Author year:" + authorYear +
@@ -292,6 +308,27 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
         private void setScannedPages () {
             this.pages = (getCharacters() * Integer.parseInt(setPages.getText().toString())) / 2400;
+        }
+
+        /*
+         * Serializing of data to mobile device
+         */
+        private void saveLitterature() {
+
+            LitteratureModel temp = new LitteratureModel(this.name, this.author, this.period,
+                    this.genre, this.publisher, Integer.parseInt(this.authorYear),
+                    Integer.parseInt(this.publishedYear), this.pages);
+            //ToDo get the proper pensumList position
+            litteratureData.put(litteratureListView.get(pensumList.get(0)).get(litteratureListView.size()), temp);
+            litteratureListView.get(pensumList.get(0)).add(this.name);
+
+            try {
+                InternalStorage.writeObject(getContext(), LITTERATURE_LIST_OBJECT_KEY, litteratureListView);
+                InternalStorage.writeObject(getContext(), LITTERATUREDATA_OBJECT_KEY, litteratureData);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
+            }
         }
 
         private void closeFragment() {

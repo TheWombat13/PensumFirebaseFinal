@@ -11,14 +11,27 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
 import com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
 import com.example.jonathanlarsen.pensumfirebase.Test.DataObject_Test;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,53 +53,68 @@ public class MainActivity extends AppCompatActivity {
     public static final String ALLOW_KEY = "ALLOWED";
     public static final String CAMERA_PREF = "CAMERA_PREF";
 
-
     /*
      * Various keys for accessing data
      */
+    public static final String PENSUM_LIST_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
+    public static final String PENSUMDATA_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
+    public static final String LITTERATURE_LIST_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
+    public static final String LITTERATUREDATA_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
+
     public static final String PENSUM_BUNDLE_KEY = "CURRENT_POSITION";
 
-
+    /*
+     *
+     */
     public static String pensum_expand_key = "something";
 
-    private Fragment pensumlist, expanded_pensum;
+    public Toolbar toolbar;
+    private Fragment pensumlist_fragment, expanded_pensum;
     private String choosen_pensum_to_expand;
-
-    private static Context mContext;
-    public static Context getContext() {
-        return mContext;
-    }
-
-    public static void setContext(Context mContext1) {
-        mContext = mContext1;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+         * Toolbar support
+         */
+        /*toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().show();*/
 
         /*
          * Boolean to determine data & storage.
          */
         if (Test_disabled) {
             data = new DataObject();
+            try {
+                pensumList = (List<String>)
+                        InternalStorage.readObject(this, PENSUM_LIST_OBJECT_KEY);
+                pensumData = (HashMap<String, PensumModel>)
+                        InternalStorage.readObject(this, PENSUMDATA_OBJECT_KEY);
+                litteratureListView = (HashMap<String, List<String>>)
+                        InternalStorage.readObject(this, LITTERATURE_LIST_OBJECT_KEY);
+                litteratureData = (HashMap<String, LitteratureModel>)
+                        InternalStorage.readObject(this, LITTERATUREDATA_OBJECT_KEY);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         } else {
             data = new DataObject_Test();
         }
 
+        //ToDo What is this suppose to do?
         Bundle bundle = new Bundle();
         bundle.putString(choosen_pensum_to_expand, pensum_expand_key);
 
-        pensumlist = new Pensum_Fragment();
+        pensumlist_fragment = new Pensum_Fragment();
         getSupportFragmentManager().beginTransaction().
-                replace(R.id.MiddleContainer, pensumlist).
+                replace(R.id.MiddleContainer, pensumlist_fragment).
                 commit();
 
     }
-
-
 
     /*
      * Shared preferences for saving camera permission
@@ -144,6 +172,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

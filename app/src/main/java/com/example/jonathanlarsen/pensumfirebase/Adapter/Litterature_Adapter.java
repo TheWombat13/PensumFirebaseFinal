@@ -19,7 +19,7 @@ import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataO
 
 public class Litterature_Adapter extends RecyclerView.Adapter {
 
-    private LitteratureListElementViewHolder vh;
+    public LitteratureListElementViewHolder vh;
     private int i;
 
     @NonNull
@@ -50,9 +50,6 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Log.d(TAG, "Listview size:" + i + " - Current position:"+ position);
 
-        //ToDo Doesn't add the 4th title. Shows "Test2" instead of "Test3"
-
-
         if (position<i) {
             vh.title.setText(litteratureData.get(
                     litteratureListView.get(
@@ -69,18 +66,15 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
             vh.publisher.setText(litteratureData.get(
                     litteratureListView.get(
                             pensumList.get(pensumView)).get(position)).getPublisher());
-            //ToDo laver fejl
-//            vh.publishedYear.setText(litteratureData.get(
-//                    litteratureListView.get(
-//                            pensumList.get(pensumView)).get(position)).getPublishedYear());
-//            vh.writenYear.setText(litteratureData.get(
-//                    litteratureListView.get(
-//                            pensumList.get(pensumView)).get(position)).getWritenYear());
-//            vh.pages.setText(litteratureData.get(
-//                    litteratureListView.get(
-//                            pensumList.get(pensumView)).get(position)).getPages());
-
-
+            vh.publishedYear.setText(String.valueOf(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getPublishedYear()));
+            vh.writenYear.setText(String.valueOf(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getWritenYear()));
+            vh.pages.setText(String.valueOf(litteratureData.get(
+                    litteratureListView.get(
+                            pensumList.get(pensumView)).get(position)).getPages()));
         }
 
     }
@@ -89,6 +83,4 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return litteratureListView.get(pensumList.get(pensumView)).size();
     }
-
-
 }
