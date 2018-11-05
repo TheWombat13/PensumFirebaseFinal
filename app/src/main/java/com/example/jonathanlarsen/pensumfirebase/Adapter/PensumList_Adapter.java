@@ -10,12 +10,15 @@ import com.example.jonathanlarsen.pensumfirebase.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
 
 public class PensumList_Adapter extends RecyclerView.Adapter {
 
     private PensumListElementViewHolder vh;
+    private int pages;
 
     @NonNull
     @Override
@@ -36,21 +39,36 @@ public class PensumList_Adapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+        setPages(position);
+
         if (position<=pensumList.size()) {
+
             if(position<pensumList.size()) {
                 vh.title.setText(pensumList.get(position));
                 vh.teacher.setText(pensumData.get(pensumList.get(position)).getTeacher());
-                vh.pages.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPages()));
+                vh.pages.setText(String.valueOf(this.pages));
                 vh.pagesToGo.setText(String.valueOf(pensumData.get(pensumList.get(position)).getPagesToGo()));
             }
-            if (position == pensumList.size()) {
+
+            /*
+             * Used in previous version where the floating action button was not implemented
+             */
+            /*if (position == pensumList.size()) {
                 vh.title.setText("ADD");
-            }
+            }*/
         }
     }
 
     @Override
     public int getItemCount() {
         return pensumList.size();
+    }
+
+    private void setPages(int position) {
+        this.pages = 0;
+        for (int i = 0; i < litteratureListView.get(pensumList.get(position)).size(); i++) {
+            this.pages += litteratureData.get(litteratureListView.get(pensumList.get(position)).get(i)).getPages();
+        }
     }
 }
