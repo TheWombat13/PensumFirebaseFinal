@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter;
+import com.example.jonathanlarsen.pensumfirebase.Pensum.AddPensum_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.IOException;
 
@@ -31,6 +33,7 @@ public class Litterature_Fragment extends Fragment {
     public static RecyclerView recyclerView;
     private Litterature_Adapter adapter;
     private Toolbar toolbar;
+    private FloatingActionButton addLitteratureBtn;
 
     public static int pensumView;
 
@@ -40,6 +43,7 @@ public class Litterature_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_litterature_, container, false);
 
         recyclerView = view.findViewById(R.id.listview_litterature);
+        addLitteratureBtn = view.findViewById(R.id.addLitteratureBtn);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new Litterature_Adapter();
@@ -92,6 +96,19 @@ public class Litterature_Fragment extends Fragment {
 
         DividerItemDecoration itemDecorator = new DividerItemDecoration(this.getActivity(), DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.litterature_divider));
+
+        addLitteratureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
+
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         return view;
     }
