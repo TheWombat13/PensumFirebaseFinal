@@ -67,6 +67,7 @@ public class PensumList_Adapter extends RecyclerView.Adapter {
 
     private void setPages(int position) {
         this.pages = 0;
+
         for (int i = 0; i < litteratureListView.get(pensumList.get(position)).size(); i++) {
             this.pages += litteratureData.get(litteratureListView.get(pensumList.get(position)).get(i)).getPages();
         }

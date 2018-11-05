@@ -20,6 +20,7 @@ import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureM
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
@@ -114,12 +115,13 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
      */
     private void savePensum() {
 
+        ArrayList <String> list;
         PensumModel temp = new PensumModel(this.title, this.teacher, this.comment, 0 , this.pagesToGo);
         //ToDo get the proper pensumList position
 
         pensumList.add(this.title);
         pensumData.put(pensumList.get(pensumList.size()-1), temp);
-
+        litteratureListView.put(pensumList.get(pensumList.size()-1), list = new ArrayList<>());
 
         try {
             InternalStorage.writeObject(getContext(), PENSUM_LIST_OBJECT_KEY, pensumList);
