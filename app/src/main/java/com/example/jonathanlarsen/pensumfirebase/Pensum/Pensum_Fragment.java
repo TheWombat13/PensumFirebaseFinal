@@ -1,5 +1,6 @@
 package com.example.jonathanlarsen.pensumfirebase.Pensum;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_OBJECT_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
 
 
 public class Pensum_Fragment extends Fragment {
 
+    public static Context context;
     public static RecyclerView recyclerView;
     private PensumList_Adapter adapter;
 
@@ -35,6 +41,8 @@ public class Pensum_Fragment extends Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_pensum_, container, false);
+
+        context = getContext();
 
         recyclerView = view.findViewById(R.id.listview_pensum);
 
@@ -51,5 +59,7 @@ public class Pensum_Fragment extends Fragment {
 
         return view;
     }
+
+
     
 }

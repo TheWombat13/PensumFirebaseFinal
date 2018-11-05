@@ -1,6 +1,5 @@
 package com.example.jonathanlarsen.pensumfirebase.Element_ViewHolders;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +22,7 @@ import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
+import static com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment.context;
 import static com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment.recyclerView;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
@@ -45,17 +45,18 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
 
     @Override
     public void onClick(View v) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(PENSUM_BUNDLE_KEY, getAdapterPosition());
 
-            Litterature_Fragment nextFrag= new Litterature_Fragment();
-            nextFrag.setArguments(bundle);
+        Bundle bundle = new Bundle();
+        bundle.putInt(PENSUM_BUNDLE_KEY, getAdapterPosition());
 
-            AppCompatActivity activity = (AppCompatActivity) v.getContext();
-            activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.MiddleContainer, nextFrag,"findThisFragment")
-                    .addToBackStack(null)
-                    .commit();
+        Litterature_Fragment nextFrag= new Litterature_Fragment();
+        nextFrag.setArguments(bundle);
+
+        AppCompatActivity activity = (AppCompatActivity) v.getContext();
+        activity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.MiddleContainer, nextFrag,"findThisFragment")
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
@@ -81,10 +82,10 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
                                 Log.d(TAG, "Adapter position: " + getAdapterPosition()
                                         + " PensumList size: " + pensumList.size());
                                 pensumList.remove(getAdapterPosition());
-                                saveState(v.getContext());
+                                saveState();
 
                                 if (getAdapterPosition() == 0) {
-                                    recyclerView.getAdapter().notifyItemChanged(getAdapterPosition());
+                                    //recyclerView.getAdapter().notifyItemChanged(getAdapterPosition());
                                 } else
                                     recyclerView.getAdapter().notifyItemRangeChanged(getAdapterPosition(), pensumList.size());
 
@@ -118,7 +119,7 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
     /*
      * Serializing of data to mobile device
      */
-    private void saveState(Context context) {
+    public static void saveState() {
         try {
             InternalStorage.writeObject(context, PENSUM_LIST_OBJECT_KEY, pensumList);
             InternalStorage.writeObject(context, PENSUMDATA_OBJECT_KEY, pensumData);
