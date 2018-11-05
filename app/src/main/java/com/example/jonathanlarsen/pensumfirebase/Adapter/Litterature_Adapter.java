@@ -51,30 +51,22 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
         Log.d(TAG, "Listview size:" + i + " - Current position:"+ position);
 
         if (position<i) {
-            vh.title.setText(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getTitle());
-            vh.author.setText(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getAuthor());
-            vh.period.setText(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getPeriod());
-            vh.genre.setText(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getGenre());
-            vh.publisher.setText(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getPublisher());
-            vh.publishedYear.setText(String.valueOf(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getPublishedYear()));
-            vh.writenYear.setText(String.valueOf(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getWritenYear()));
-            vh.pages.setText(String.valueOf(litteratureData.get(
-                    litteratureListView.get(
-                            pensumList.get(pensumView)).get(position)).getPages()));
+            vh.title.setText(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getTitle());
+            vh.author.setText(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getAuthor());
+            vh.period.setText(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getPeriod());
+            vh.genre.setText(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getGenre());
+            vh.publisher.setText(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getPublisher());
+            vh.publishedYear.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getPublishedYear()));
+            vh.writenYear.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getWritenYear()));
+            vh.pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+                        pensumList.get(pensumView)).get(position)).getPages()));
         }
 
     }
