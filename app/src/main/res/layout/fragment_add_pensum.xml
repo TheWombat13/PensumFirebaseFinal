@@ -1,154 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollView_scan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="95">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_name"
+                android:id="@+id/text_input_pensumtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
                 app:helperTextEnabled="true"
                 app:helperText="@string/helper_name">
-
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_name"
+                    android:id="@+id/text_pensumtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_name" />
+                    android:hint="@string/hint_pensum_title" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_author"
-                android:layout_width="match_parent"
+                android:id="@+id/text_input_pensumauthor"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_name"
+                android:layout_weight="1"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="7dp"
                 app:helperTextEnabled="true"
-                app:helperText="@string/helper_author">
-
+                app:helperText="@string/hint_pensum_teacher">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_author"
+                    android:id="@+id/text_pensumauther"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_author"/>
+                    android:hint="@string/hint_pensum_teacher" />
             </com.google.android.material.textfield.TextInputLayout>
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_period"
-                android:layout_width="match_parent"
+                android:id="@+id/text_input_pensumpages"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_author"
+                android:layout_marginEnd="14dp"
                 app:helperTextEnabled="true"
-                app:helperText="@string/helper_period">
-
+                app:helperText="@string/hint_pensum_size">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_period"
+                    android:id="@+id/text_pensumpages"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_period"/>
+                    android:hint="@string/hint_pensum_size"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_genre"
+                android:id="@+id/text_input_pensumcomment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_period"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
                 app:helperTextEnabled="true"
-                app:helperText="@string/helper_genre">
-
+                app:helperText="@string/hint_pensum_comment">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_genre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_genre"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_pages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_genre"
-                app:helperTextEnabled="true"
-                app:helperText="@string/helper_pages">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_pages"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_pages"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/text_input_commentary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_pages"
-                app:helperTextEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_commentary"
+                    android:id="@+id/text_pensumcomment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_commentary"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/save_button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/CenterToken"
-        android:layout_marginTop="12dp"/>
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_weight="5">
 
-    <Button
-        android:id="@+id/ScanStorageImg_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/CenterToken"
-        android:layout_alignParentBottom="true"
-        android:contentDescription="@string/ToDo" />
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/btn_savepensum" />
 
-    <TextView
-        android:id="@+id/CenterToken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/scrollView_scan"/>
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/btn_cancelpensum" />
 
-    <Button
-        android:id="@+id/ScanImg_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/CenterToken"
-        android:layout_alignParentBottom="true"
-        android:clickable="false"
-        android:enabled="false"
-        android:contentDescription="@string/ToDo" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
