@@ -34,7 +34,7 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
     public TextView pages;
     public TextView spacing;
     public TextView pagesToGo;
-    public TextView ADD;
+    //public TextView ADD;
     public ImageButton delete;
 
     public PensumListElementViewHolder(View itemView) {
