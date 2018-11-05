@@ -8,6 +8,13 @@
     <string name="YES_text">Ja</string>
     <string name="backslash">/</string>
 
+    <!-- Fragment_AddPensen EditText -->
+
+    <string name="hint_pensum_title">Titel</string>
+    <string name="hint_pensum_teacher">Underviser</string>
+    <string name="hint_pensum_size">Antal sider</string>
+    <string name="hint_pensum_comment">Evt. kommentarer</string>
+
     <!-- Fragment_AddLitt EditText -->
     <string name="hint_name">Den Grimme Ælling</string>
     <string name="hint_name_required">Indtast venligst en titel</string>
@@ -33,6 +40,11 @@
     <string name="btn_camera">Camera</string>
     <string name="btn_save">Save</string>
     <string name="btn_Storage">Storage</string>
+
+    <!-- Fragment_AddPensum Buttons -->
+
+    <string name="btn_savepensum">Save</string>
+    <string name="btn_cancelpensum">Cancel</string>
 
     <!-- Fragment ScanImg Error messages -->
     <string name="errorTitle">Ooops !</string>

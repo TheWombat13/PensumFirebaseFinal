@@ -40,7 +40,7 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     private String title, teacher;
 
     //ToDo Doesn't support the variables "pages" & "pagesToGo"
-    private EditText setTitle, setTeacher;
+    private EditText setTitle, setTeacher, setPages, setComment;
     private Button save;
 
     @Nullable
@@ -48,8 +48,10 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_pensum, container, false);
 
-        setTitle = view.findViewById(R.id.text_name);
-        setTeacher = view.findViewById(R.id.text_author);
+        setTitle = view.findViewById(R.id.text_pensumtitle);
+        setTeacher = view.findViewById(R.id.text_pensumauther);
+        setPages = view.findViewById(R.id.text_pensumpages);
+        setComment = view.findViewById(R.id.text_pensumcomment);
 
         save = view.findViewById(R.id.save_button);
 
@@ -104,8 +106,10 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
         PensumModel temp = new PensumModel(this.title, this.teacher, 0, 1200);
         //ToDo get the proper pensumList position
-        pensumData.put(pensumList.get(0), temp);
+
         pensumList.add(this.title);
+        pensumData.put(pensumList.get(pensumList.size()), temp);
+
 
         try {
             InternalStorage.writeObject(getContext(), PENSUM_LIST_OBJECT_KEY, pensumList);
