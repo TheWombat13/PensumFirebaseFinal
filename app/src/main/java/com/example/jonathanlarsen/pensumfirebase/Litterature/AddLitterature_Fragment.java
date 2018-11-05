@@ -39,7 +39,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Objects;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
@@ -69,14 +68,14 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
         private int characterCounter;
         private int pages;
-        private String name, author, authorYear, period, genre,
+        private String title, author, authorYear, period, genre,
                 publisher, publishedYear, commentary;
         private String currentPhotoPath;
 
         private Frame frame;
         private TextRecognizer mTextRecognizer;
 
-        private EditText setName, setAuthor, setAuthorYear, setPeriod, setGenre,
+        private EditText setTitle, setAuthor, setAuthorYear, setPeriod, setGenre,
                 setPages, setPublisher, setPublishedYear, setCommentary;
         private Button save, ScanStorageImg, ScanNewImg;
 
@@ -85,7 +84,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_add_litterature, container, false);
 
-            setName = view.findViewById(R.id.text_name);
+            setTitle = view.findViewById(R.id.text_name);
             setAuthor = view.findViewById(R.id.text_author);
             setAuthorYear = view.findViewById(R.id.text_author_year);
             setPeriod = view.findViewById(R.id.text_period);
@@ -150,7 +149,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     Log.d(TAG, "onClick: Save");
 
                     setVariables();
-                    if (!this.name.equals("")) {
+                    if (!this.title.equals("")) {
                         closeFragment();
                     } else {
                         showAlertMessage("nameError");
@@ -272,12 +271,12 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setVariables() {
-            if (setName.getText().toString() == null || setName.getText().toString().equals("")) {
-                setName.setHint(R.string.hint_name_required);
-                setName.requestFocus();
+            if (setTitle.getText().toString() == null || setTitle.getText().toString().equals("")) {
+                setTitle.setHint(R.string.hint_name_required);
+                setTitle.requestFocus();
                 return;
             } else {
-                this.name = setName.getText().toString();
+                this.title = setTitle.getText().toString();
             }
             this.author = setAuthor.getText().toString();
             this.authorYear = setAuthorYear.getText().toString();
@@ -290,7 +289,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
             saveLitterature();
 
-            Log.d(TAG, "Name:" + name +
+            Log.d(TAG, "Name:" + title +
                     " Author:" + author + " Author year:" + authorYear +
                     " Period:" + period +
                     " Genre:" + genre + " Pages:" + pages +
@@ -315,12 +314,12 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
          */
         private void saveLitterature() {
 
-            LitteratureModel temp = new LitteratureModel(this.name, this.author, this.period,
+            LitteratureModel temp = new LitteratureModel(this.title, this.author, this.period,
                     this.genre, this.publisher, Integer.parseInt(this.authorYear),
                     Integer.parseInt(this.publishedYear), this.pages);
             //ToDo get the proper pensumList position
             litteratureData.put(litteratureListView.get(pensumList.get(0)).get(litteratureListView.size()), temp);
-            litteratureListView.get(pensumList.get(0)).add(this.name);
+            litteratureListView.get(pensumList.get(0)).add(this.title);
 
             try {
                 InternalStorage.writeObject(getContext(), LITTERATURE_LIST_OBJECT_KEY, litteratureListView);
@@ -337,7 +336,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private File createImageFile() throws IOException {
-            // Create an image file name
+            // Create an image file title
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = "JPEG_" + timeStamp + "_";
             File storageDir = Objects.requireNonNull(this.getActivity()).getExternalFilesDir(Environment.DIRECTORY_PICTURES);

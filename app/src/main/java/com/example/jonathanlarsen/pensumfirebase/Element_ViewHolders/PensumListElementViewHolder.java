@@ -119,7 +119,7 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
     /*
      * Serializing of data to mobile device
      */
-    public static void saveState() {
+    public void saveState() {
         try {
             InternalStorage.writeObject(context, PENSUM_LIST_OBJECT_KEY, pensumList);
             InternalStorage.writeObject(context, PENSUMDATA_OBJECT_KEY, pensumData);
