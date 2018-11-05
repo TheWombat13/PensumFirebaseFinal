@@ -317,9 +317,10 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             LitteratureModel temp = new LitteratureModel(this.title, this.author, this.period,
                     this.genre, this.publisher, Integer.parseInt(this.authorYear),
                     Integer.parseInt(this.publishedYear), this.pages);
+
             //ToDo get the proper pensumList position
-            litteratureData.put(litteratureListView.get(pensumList.get(0)).get(litteratureListView.size()), temp);
             litteratureListView.get(pensumList.get(0)).add(this.title);
+            litteratureData.put(litteratureListView.get(pensumList.get(0)).get(litteratureListView.size() + 1), temp);
 
             try {
                 InternalStorage.writeObject(getContext(), LITTERATURE_LIST_OBJECT_KEY, litteratureListView);

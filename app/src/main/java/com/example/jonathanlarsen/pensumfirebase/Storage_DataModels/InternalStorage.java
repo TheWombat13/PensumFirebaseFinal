@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.List;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
@@ -42,6 +43,15 @@ public class InternalStorage implements Serializable {
         ObjectInputStream ois = new ObjectInputStream(fis);
         Object object = ois.readObject();
         return object;
+    }
+
+    public static List readList(Context context, String key)
+            throws IOException, ClassNotFoundException {
+
+        FileInputStream fis = context.openFileInput(key);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        List list = (List) ois.readObject();
+        return list;
     }
 
     public static void savePensum (Context context) {

@@ -90,7 +90,6 @@ public class DataObject_Test extends DataObject {
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-
         litteratureModel = new LitteratureModel("Test6", "", "", "", "", 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
