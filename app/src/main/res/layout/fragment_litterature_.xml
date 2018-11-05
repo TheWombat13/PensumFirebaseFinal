@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,10 +14,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" /> -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listview_litterature"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addLitteratureBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@color/colorPrimary"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@+id/listview_litterature"
+            app:layout_anchorGravity="right|bottom"
+            android:layout_margin="25dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listview_litterature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 </LinearLayout>
