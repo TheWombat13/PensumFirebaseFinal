@@ -50,18 +50,21 @@ public class DataObject_Test extends DataObject {
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setPages(0);
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setPagesToGo(1200);
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setTeacher("Anders Andersen");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Halløj");
 
         pensumData.put(pensumList.get(1), new PensumModel());
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setTitle(pensumList.get(1));
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setPages(0);
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setPagesToGo(500);
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setTeacher("Kim Byvald");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Hej");
 
         pensumData.put(pensumList.get(2), new PensumModel());
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setTitle(pensumList.get(2));
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setPages(0);
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setPagesToGo(900);
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setTeacher("JØK");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Hejsa");
 
         /*
         Adding the litterature-data & meta-data for each sub litterature for respectively:

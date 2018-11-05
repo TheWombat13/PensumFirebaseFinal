@@ -6,6 +6,7 @@ public class PensumModel implements Serializable {
 
     private String title;
     private String teacher;
+    private String comment;
     private int pages;
     private int pagesToGo;
 
@@ -13,10 +14,11 @@ public class PensumModel implements Serializable {
 
     }
 
-    public PensumModel(String title, String teacher, int pages, int pagesToGo) {
+    public PensumModel(String title, String teacher, String comment, int pages, int pagesToGo) {
 
         this.title = title;
         this.teacher = teacher;
+        this.comment = comment;
         this.pages = pages;
         this.pagesToGo = pagesToGo;
 
@@ -36,6 +38,14 @@ public class PensumModel implements Serializable {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public int getPages() {

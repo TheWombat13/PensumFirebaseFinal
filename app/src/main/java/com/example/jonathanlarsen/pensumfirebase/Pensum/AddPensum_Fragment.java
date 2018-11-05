@@ -37,11 +37,12 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
      * Created by Thomas-PC on 27/09/2018.
      */
 
-    private String title, teacher;
+    private String title, teacher, comment;
+    private int pagesToGo;
 
     //ToDo Doesn't support the variables "pages" & "pagesToGo"
-    private EditText setTitle, setTeacher, setPages, setComment;
-    private Button save;
+    private EditText setTitle, setTeacher, setPagesToGo, setComment;
+    private Button save, cancel;
 
     @Nullable
     @Override
@@ -50,10 +51,11 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
         setTitle = view.findViewById(R.id.text_pensumtitle);
         setTeacher = view.findViewById(R.id.text_pensumauther);
-        setPages = view.findViewById(R.id.text_pensumpages);
+        setPagesToGo = view.findViewById(R.id.text_pensumpages);
         setComment = view.findViewById(R.id.text_pensumcomment);
 
         save = view.findViewById(R.id.save_button);
+        cancel = view.findViewById(R.id.cancel_button);
 
         startLayout();
         startOnClickListeners();
@@ -67,6 +69,7 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
     private void startOnClickListeners() {
         save.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +85,11 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
                     showAlertMessage("nameError");
                 }
                 break;
+
+            case  R.id.cancel_button:
+                closeFragment();
+                break;
+
             default:
                 Toast.makeText(getActivity().getApplicationContext(), "Oops! That's not how its suppose to work!", Toast.LENGTH_LONG).show();
                 break;
@@ -92,6 +100,8 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     private void setVariables() {
         this.title = setTitle.getText().toString();
         this.teacher = setTeacher.getText().toString();
+        this.comment = setComment.getText().toString();
+        this.pagesToGo = Integer.parseInt(setPagesToGo.getText().toString());
 
         savePensum();
 
@@ -104,11 +114,11 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
      */
     private void savePensum() {
 
-        PensumModel temp = new PensumModel(this.title, this.teacher, 0, 1200);
+        PensumModel temp = new PensumModel(this.title, this.teacher, this.comment, 0 , this.pagesToGo);
         //ToDo get the proper pensumList position
 
         pensumList.add(this.title);
-        pensumData.put(pensumList.get(pensumList.size()), temp);
+        pensumData.put(pensumList.get(pensumList.size()-1), temp);
 
 
         try {
