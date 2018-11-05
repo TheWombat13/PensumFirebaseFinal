@@ -1,6 +1,8 @@
 package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
 
-public class PensumModel {
+import java.io.Serializable;
+
+public class PensumModel implements Serializable {
 
     private String title;
     private String teacher;
