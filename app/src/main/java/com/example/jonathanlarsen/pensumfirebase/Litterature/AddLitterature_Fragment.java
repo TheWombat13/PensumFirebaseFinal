@@ -44,6 +44,7 @@ import java.util.Objects;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.pensumView;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.ALLOW_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
@@ -267,13 +268,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
         private void setVariables() {
 
-            Log.d(TAG, "Name:" + title +
-                    " Author:" + author + " Author year:" + authorYear +
-                    " Period:" + period +
-                    " Genre:" + genre + " Pages:" + pages +
-                    " publisher:" + publisher + " published year:" + publishedYear +
-                    " Commentary:" + commentary);
-
             if (setTitle.getText() == null || setTitle.getText().toString().equals("")) {
                 setTitle.setHighlightColor(getResources().getColor(R.color.colorError));
                 setTitle.setHintTextColor(getResources().getColor(R.color.colorError));
@@ -363,17 +357,21 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     Integer.parseInt(this.publishedYear), this.pages);
 
             //ToDo get the proper pensumList position
-            litteratureListView.get(pensumList.get(0)).add(this.title);
-            litteratureData.put(litteratureListView.get(pensumList.get(0)).get(litteratureListView.size() + 1), temp);
+            litteratureListView.get(pensumList.get(pensumView)).add(this.title);
+            litteratureData.put(litteratureListView.get(pensumList.get(pensumView)).get(litteratureListView.size()+1), temp);
 
             try {
                 InternalStorage.writeObject(getContext(), LITTERATURE_LIST_OBJECT_KEY, litteratureListView);
                 InternalStorage.writeObject(getContext(), LITTERATUREDATA_OBJECT_KEY, litteratureData);
+                Log.d(TAG, "Save succeeded");
+                closeFragment();
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.d(TAG, "Save failed");
                 Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
             }
-            closeFragment();
+            Log.d(TAG, litteratureData.get(litteratureListView.get(
+                    pensumList.get(pensumView)).get(litteratureListView.get(pensumList.get(pensumView)).size()-1)).getTitle());
         }
 
         private void closeFragment() {
@@ -423,7 +421,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
                             setCharacters(textBlock.getValue().length());
                             Log.d(TAG, textBlock.getValue() +
-                                    "| Characters: " + textBlock.getValue().length());
+                                    "| Characters: " + textBlock.getValue().length()
+                                    + " | Total Characters: " + getCharacters());
                         }
                     } else {
                         try {
