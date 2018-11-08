@@ -227,18 +227,21 @@
             android:contentDescription="@string/btn_camera" />
 
         <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/btn_save"/>
-
-        <Button
             android:id="@+id/ScanStorageImg_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:contentDescription="@string/btn_Storage" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="20dp"
+            android:contentDescription="@string/btn_save"/>
+
     </LinearLayout>
 
 </LinearLayout>
