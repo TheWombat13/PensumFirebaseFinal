@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Litterature;
+package com.example.jonathanlarsen.pensumfirebase.Pensum;
 
 import android.app.Activity;
 import android.graphics.pdf.PdfDocument;
