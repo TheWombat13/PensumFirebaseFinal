@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:elevation="20dp"
+    android:background="@color/colorPrimary"
+    android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/title"
@@ -25,19 +28,19 @@
         android:id="@+id/period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/title"/>
+        android:layout_below="@id/author"/>
 
     <TextView
         android:id="@+id/genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/author"/>
+        android:layout_below="@id/period"/>
 
     <TextView
         android:id="@+id/publisher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/author"/>
+        android:layout_below="@id/genre"/>
 
     <TextView
         android:id="@+id/published_year"
@@ -49,13 +52,13 @@
         android:id="@+id/written_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/publisher"/>
+        android:layout_toEndOf="@id/author"/>
 
     <TextView
         android:id="@+id/littarature_pages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/written_year"
+        android:layout_alignParentEnd="true"
         />
 
     <CheckBox
