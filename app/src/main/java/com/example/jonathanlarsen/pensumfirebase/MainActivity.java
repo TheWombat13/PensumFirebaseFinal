@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
      * Various keys for accessing data
      */
     public static final String PENSUM_LIST_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
-    public static final String PENSUMDATA_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
-    public static final String LITTERATURE_LIST_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
-    public static final String LITTERATUREDATA_OBJECT_KEY = "PENSUMLIST_DATAOBJECT";
+    public static final String PENSUMDATA_OBJECT_KEY = "PENSUMDATA_DATAOBJECT";
+    public static final String LITTERATURE_LIST_OBJECT_KEY = "LITTERATURELIST_DATAOBJECT";
+    public static final String LITTERATUREDATA_OBJECT_KEY = "LITTERATUREDATA_DATAOBJECT";
 
     public static final String PENSUM_BUNDLE_KEY = "CURRENT_POSITION";
 

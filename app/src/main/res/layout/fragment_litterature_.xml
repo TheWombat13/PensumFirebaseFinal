@@ -30,6 +30,7 @@
             app:layout_anchorGravity="right|bottom"
             android:layout_margin="25dp"/>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listview_litterature"
             android:layout_width="match_parent"

@@ -73,6 +73,9 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return litteratureListView.get(pensumList.get(pensumView)).size();
+        if (litteratureListView.get(pensumList.get(pensumView)) != null)
+            return litteratureListView.get(pensumList.get(pensumView)).size();
+        else
+            return 0;
     }
 }
