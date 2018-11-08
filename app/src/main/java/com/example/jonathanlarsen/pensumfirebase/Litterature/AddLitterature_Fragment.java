@@ -149,11 +149,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     Log.d(TAG, "onClick: Save");
 
                     setVariables();
-                    if (!this.title.equals("")) {
-                        closeFragment();
-                    } else {
-                        showAlertMessage("nameError");
-                    }
                     break;
 
                 case R.id.ScanStorageImg_Button:
@@ -271,22 +266,64 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setVariables() {
-            if (setTitle.getText().toString() == null || setTitle.getText().toString().equals("")) {
-                setTitle.setHint(R.string.hint_name_required);
+
+            Log.d(TAG, "Name:" + title +
+                    " Author:" + author + " Author year:" + authorYear +
+                    " Period:" + period +
+                    " Genre:" + genre + " Pages:" + pages +
+                    " publisher:" + publisher + " published year:" + publishedYear +
+                    " Commentary:" + commentary);
+
+            if (setTitle.getText() == null || setTitle.getText().toString().equals("")) {
+                setTitle.setHighlightColor(getResources().getColor(R.color.colorError));
+                setTitle.setHintTextColor(getResources().getColor(R.color.colorError));
+                setTitle.setError("Skal udfyldes!");
                 setTitle.requestFocus();
                 return;
             } else {
                 this.title = setTitle.getText().toString();
             }
-            this.author = setAuthor.getText().toString();
-            this.authorYear = setAuthorYear.getText().toString();
-            this.period = setPeriod.getText().toString();
-            this.genre = setGenre.getText().toString();
-            this.pages = Integer.parseInt(setPages.getText().toString());
-            this.publisher = setPublisher.getText().toString();
-            this.publishedYear = setPublishedYear.getText().toString();
-            this.commentary = setCommentary.getText().toString();
 
+            if (setAuthor.getText() != null) {
+                this.author = setAuthor.getText().toString();
+            } else {
+                this.author = "";
+            }
+            if (setAuthorYear.getText() != null) {
+                this.authorYear = setAuthorYear.getText().toString();
+            } else {
+                this.authorYear = "";
+            }
+            if (setPeriod.getText() != null) {
+                this.period = setPeriod.getText().toString();
+            } else {
+                this.period = "";
+            }
+            if (setGenre.getText() != null) {
+                this.genre = setGenre.getText().toString();
+            } else {
+                this.genre = "";
+            }
+            if (pages != 0) {
+                this.pages = Integer.parseInt(setPages.getText().toString());
+            } else {
+                this.pages = 0;
+            }
+            if (setPublisher.getText() != null) {
+                this.publisher = setPublisher.getText().toString();
+            } else {
+                this.publisher = "";
+            }
+            if (setPublishedYear.getText() != null) {
+                this.publishedYear = setPublishedYear.getText().toString();
+            } else {
+                this.publishedYear = "";
+            }
+            if (setCommentary.getText() != null) {
+                this.commentary = setCommentary.getText().toString();
+            } else {
+                this.commentary = "";
+            }
             saveLitterature();
 
             Log.d(TAG, "Name:" + title +
@@ -314,6 +351,13 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
          */
         private void saveLitterature() {
 
+            if (this.authorYear.equals("")) {
+                this.authorYear = "0000";
+            }
+            if (this.publishedYear.equals("")) {
+                this.publishedYear = "0000";
+            }
+
             LitteratureModel temp = new LitteratureModel(this.title, this.author, this.period,
                     this.genre, this.publisher, Integer.parseInt(this.authorYear),
                     Integer.parseInt(this.publishedYear), this.pages);
@@ -329,6 +373,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 e.printStackTrace();
                 Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
             }
+            closeFragment();
         }
 
         private void closeFragment() {
