@@ -50,6 +50,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
         recyclerView = view.findViewById(R.id.listview_pensum);
 
         addPensum = view.findViewById(R.id.add_pensum);
+        sendPensum = view.findViewById(R.id.send_pensum);
         expandebleMenu.expandMenu = view.findViewById(R.id.expand_menu);
         expandebleMenu.menuLayout = view.findViewById(R.id.menu_layout);
         expandebleMenu.arcLayout = view.findViewById(R.id.arc_layout);
@@ -71,6 +72,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
 */
         expandebleMenu.expandMenu.setOnClickListener(this);
         addPensum.setOnClickListener(this);
+        sendPensum.setOnClickListener(this);
 
 
         return view;
@@ -89,6 +91,16 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
             AppCompatActivity activity = (AppCompatActivity) getContext();
             activity.getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+        if (v.getId() == R.id.send_pensum) {
+            SendPensum_Fragment frag = new SendPensum_Fragment();
+
+            AppCompatActivity activity = (AppCompatActivity) getContext();
+            activity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.MiddleContainer, frag)
                     .addToBackStack(null)
                     .commit();
         }
