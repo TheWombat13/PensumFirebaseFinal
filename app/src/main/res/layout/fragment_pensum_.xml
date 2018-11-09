@@ -11,18 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listview_pensum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listview_pensum"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-
-</LinearLayout>
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -48,7 +47,6 @@
         android:visibility="invisible"
         >
 
-
         <com.ogaclejapan.arclayout.ArcLayout
             android:id="@+id/arc_layout"
             android:layout_width="match_parent"
@@ -59,36 +57,28 @@
             app:arc_reverseAngle="false"
             >
 
-
             <Button
-                android:theme="@style/PrimaryButton"
                 android:id="@+id/add_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="A"
                 app:arc_origin="center"
-                tools:ignore="MissingPrefix" />
+                tools:ignore="MissingPrefix"/>
 
             <Button
                 android:id="@+id/edit_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="B"
-                android:background="@drawable/button_shape"
-
-                />
+                android:text="B" />
 
             <Button
                 android:id="@+id/send_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="C"
-                android:background="@drawable/button_shape"
-
-                />
+                android:text="C"/>
 
         </com.ogaclejapan.arclayout.ArcLayout>
 
