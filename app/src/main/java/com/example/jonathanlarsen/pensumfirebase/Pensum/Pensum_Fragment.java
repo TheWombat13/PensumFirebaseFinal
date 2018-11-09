@@ -13,6 +13,7 @@ import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,22 +61,24 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
 
         recyclerView.setAdapter(adapter);
 
-
-
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
                 DividerItemDecoration.VERTICAL));
 
-/*
-        for (int i = 0, size = arcLayout.getChildCount(); i < size; i++) {
-            arcLayout.getChildAt(i).setOnClickListener(this);
-        }
-*/
+        startLayout();
+        startOnClickListener();
+
+        return view;
+    }
+
+    private void startLayout () {
+        addPensum.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+        sendPensum.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+    }
+
+    private void startOnClickListener() {
         expandebleMenu.expandMenu.setOnClickListener(this);
         addPensum.setOnClickListener(this);
         sendPensum.setOnClickListener(this);
-
-
-        return view;
     }
 
     @Override
