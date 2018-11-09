@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
     <corners
         android:topLeftRadius="50dp"
         android:topRightRadius="50dp"
         android:bottomLeftRadius="50dp"
         android:bottomRightRadius="50dp"
         />
+    <!--
     <solid
-        android:color="#FFFFFF"
+        android:color="@color/colorPrimary"
         />
+        -->
     <padding
         android:left="0dp"
         android:top="0dp"
@@ -19,8 +21,10 @@
         android:width="60dp"
         android:height="60dp"
         />
+    <!--
     <stroke
         android:width="3dp"
-        android:color="#0A5B98"
+        android:color="@color/colorPrimary"
         />
+        -->
 </shape>
