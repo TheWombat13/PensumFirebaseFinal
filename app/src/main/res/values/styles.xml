@@ -1,4 +1,3 @@
-
 <resources>
 
     <!-- Base application theme. -->
@@ -9,17 +8,14 @@
         <item name="colorAccent">@color/browser_actions_text_color</item>
         <item name="colorError">@color/colorError</item>
 
-        <item name="buttonStyle">@style/AppTheme.Button</item>
-        <item name="android:colorBackground">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/browser_actions_text_color</item>
-
         <!-- Toolbar support, enable the code below to use toolbar
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item> -->
     </style>
 
-    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+    <style name="PrimaryButton" parent="Theme.AppCompat">
         <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
