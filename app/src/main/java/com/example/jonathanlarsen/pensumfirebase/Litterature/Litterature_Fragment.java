@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter;
+import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
+import com.example.jonathanlarsen.pensumfirebase.Pensum.AddPensum_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,12 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
 
-public class Litterature_Fragment extends Fragment {
+public class Litterature_Fragment extends Fragment implements View.OnClickListener{
 
     public static RecyclerView recyclerView;
     private Litterature_Adapter adapter;
     private Toolbar toolbar;
-    private FloatingActionButton addLitteratureBtn;
+    private ExpandebleMenu expandebleMenu;
+
+    private Toast toast = null;
+
+    private Button addLitterature, editLitterature, shareLitterature;
 
     public static int pensumView;
 
@@ -31,9 +39,17 @@ public class Litterature_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_litterature_, container, false);
 
+        expandebleMenu = new ExpandebleMenu();
+
 
         recyclerView = view.findViewById(R.id.listview_litterature);
-        addLitteratureBtn = view.findViewById(R.id.addLitteratureBtn);
+
+        addLitterature = view.findViewById(R.id.add_litterature);
+        editLitterature = view.findViewById(R.id.edit_litterature);
+        shareLitterature = view.findViewById(R.id.share_litterature);
+        expandebleMenu.expandMenu = view.findViewById(R.id.expand_menu);
+        expandebleMenu.menuLayout = view.findViewById(R.id.menu_layout);
+        expandebleMenu.arcLayout = view.findViewById(R.id.arc_layout);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -93,20 +109,52 @@ public class Litterature_Fragment extends Fragment {
         itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.litterature_divider));
 
 */
-        addLitteratureBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
-
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+        expandebleMenu.expandMenu.setOnClickListener(this);
+        addLitterature.setOnClickListener(this);
 
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == R.id.expand_menu) {
+            onFabClick(v);
+            return;
+        }
+
+        if (v.getId() == R.id.add_litterature) {
+            AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
+
+            AppCompatActivity activity = (AppCompatActivity) getContext();
+            activity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+        if (v instanceof Button) {
+            showToast((Button) v);
+        }
+    }
+
+    private void showToast(Button btn) {
+        if (toast != null) {
+            toast.cancel();
+        }
+
+        String text = "Clicked: " + btn.getText();
+        toast = Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT);
+        toast.show();
+
+    }
+
+    private void onFabClick(View v) {
+        if (v.isSelected()) {
+            expandebleMenu.hideMenu();
+        } else {
+            expandebleMenu.showMenu();
+        }
+        v.setSelected(!v.isSelected());
+    }
 }
