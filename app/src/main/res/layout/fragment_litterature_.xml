@@ -70,13 +70,13 @@
 
 
             <Button
-                android:theme="@style/PrimaryButton"
                 android:id="@+id/add_litterature"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="A"
                 app:arc_origin="center"
+                app:backgroundTint="@color/colorPrimary"
                 tools:ignore="MissingPrefix" />
 
             <Button
@@ -85,8 +85,7 @@
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="B"
-                android:background="@drawable/button_shape"
-                />
+                app:backgroundTint="@color/colorPrimary" />
 
             <Button
                 android:id="@+id/share_litterature"
@@ -94,9 +93,7 @@
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="C"
-                android:background="@drawable/button_shape"
-
-                />
+                app:backgroundTint="@color/colorPrimary" />
 
         </com.ogaclejapan.arclayout.ArcLayout>
 

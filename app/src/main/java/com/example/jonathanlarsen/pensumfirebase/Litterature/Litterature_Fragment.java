@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter;
@@ -15,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +33,7 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
     private Toast toast = null;
 
     private Button addLitterature, editLitterature, shareLitterature;
+    private ImageView itemImage;
 
     public static int pensumView;
 
@@ -109,10 +112,22 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
         itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.litterature_divider));
 
 */
-        expandebleMenu.expandMenu.setOnClickListener(this);
-        addLitterature.setOnClickListener(this);
+        startLayout();
+        startOnClickListener();
 
         return view;
+    }
+
+    private void startLayout () {
+        addLitterature.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+        shareLitterature.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+        editLitterature.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+
+    }
+
+    private void startOnClickListener() {
+        expandebleMenu.expandMenu.setOnClickListener(this);
+        addLitterature.setOnClickListener(this);
     }
 
     @Override

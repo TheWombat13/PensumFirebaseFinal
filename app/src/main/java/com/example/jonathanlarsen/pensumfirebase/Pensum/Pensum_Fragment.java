@@ -1,6 +1,7 @@
 package com.example.jonathanlarsen.pensumfirebase.Pensum;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,6 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment_pensum_, container, false);
 
         context = getContext();
@@ -52,6 +52,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
 
         addPensum = view.findViewById(R.id.add_pensum);
         sendPensum = view.findViewById(R.id.send_pensum);
+        editPensum = view.findViewById(R.id.edit_pensum);
         expandebleMenu.expandMenu = view.findViewById(R.id.expand_menu);
         expandebleMenu.menuLayout = view.findViewById(R.id.menu_layout);
         expandebleMenu.arcLayout = view.findViewById(R.id.arc_layout);
@@ -64,6 +65,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
                 DividerItemDecoration.VERTICAL));
 
+
         startLayout();
         startOnClickListener();
 
@@ -73,6 +75,8 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
     private void startLayout () {
         addPensum.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
         sendPensum.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+        editPensum.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape));
+
     }
 
     private void startOnClickListener() {
