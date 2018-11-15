@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
         /*
          * Toolbar support
          */
-        /*toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().show();*/
+        getSupportActionBar().show();
 
         /*
          * Boolean to determine data & storage.
