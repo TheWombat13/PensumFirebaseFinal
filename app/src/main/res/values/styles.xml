@@ -8,9 +8,8 @@
         <item name="colorAccent">@color/browser_actions_text_color</item>
         <item name="colorError">@color/colorError</item>
 
-        <!-- Toolbar support, enable the code below to use toolbar
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item> -->
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

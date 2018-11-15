@@ -14,6 +14,7 @@ import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -30,6 +31,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
 
     private Toast toast = null;
 
+    private Toolbar toolbar;
     private Button addPensum, editPensum, sendPensum;
 
     /*
@@ -45,6 +47,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_pensum_, container, false);
 
         context = getContext();
+        toolbar = getActivity().findViewById(R.id.toolbar);
 
         expandebleMenu = new ExpandebleMenu();
 
@@ -65,6 +68,11 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
                 DividerItemDecoration.VERTICAL));
 
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.pensum_title);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         startLayout();
         startOnClickListener();

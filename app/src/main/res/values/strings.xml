@@ -8,8 +8,10 @@
     <string name="YES_text">Ja</string>
     <string name="backslash">/</string>
 
-    <!-- Fragment_AddPensen EditText -->
+    <!-- Toolbar titles -->
+    <string name="pensum_title">Pensum</string>
 
+    <!-- Fragment_AddPensen EditText -->
     <string name="hint_pensum_title">Titel</string>
     <string name="hint_pensum_teacher">Underviser</string>
     <string name="hint_pensum_size">Antal sider</string>
