@@ -62,6 +62,6 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
             viewHolder.delete.setVisibility(View.VISIBLE);
         }
         Toast.makeText(view.getContext(), "Delete state shown", Toast.LENGTH_SHORT).show();
-        return false;
+        return true;
     }
 }
