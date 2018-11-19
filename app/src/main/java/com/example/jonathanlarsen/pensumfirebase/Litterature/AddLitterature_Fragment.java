@@ -170,6 +170,12 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 case R.id.ScanImg_Button:
                     Log.d(TAG, "onClick: Scan image from camera");
 
+                    Toast.makeText(getContext(), "Not implemented yet!", Toast.LENGTH_LONG).show();
+
+                    /*
+                     * Image seems to take a thumbnail instead of full-size image.
+                     * Removed for open test to avoid flooding.
+                     *
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                     if (takePictureIntent.resolveActivity(Objects.requireNonNull(getContext()).getPackageManager()) != null) {
@@ -196,7 +202,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, CAMERA_REQUEST);
                         }
-                    }
+                    }*/
 
                     break;
 

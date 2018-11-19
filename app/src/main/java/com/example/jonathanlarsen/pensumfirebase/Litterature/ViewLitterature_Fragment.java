@@ -1,5 +1,6 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.transition.TransitionInflater;
 
 import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.pensumView;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
@@ -33,6 +35,12 @@ public class ViewLitterature_Fragment extends Fragment {
     public TextView pages;
 
     public ImageView image;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        postponeEnterTransition();
+    }
 
     @Nullable
     @Override
@@ -72,13 +80,9 @@ public class ViewLitterature_Fragment extends Fragment {
         pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPages()));
 
-
-
-        title.setTransitionName("Title");
-        author.setTransitionName("Author");
-        pages.setTransitionName("Pages");
-        image.setTransitionName("Image");
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            image.setTransitionName(title.getText().toString());
+        }
 
         return view;
     }

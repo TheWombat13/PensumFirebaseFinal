@@ -43,12 +43,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:clickable="true"
-        android:layout_weight="1"
-        app:srcCompat="@android:drawable/ic_input_add"
+        app:srcCompat="@drawable/icon_menu"
         android:tint="@android:color/white"
-        app:backgroundTint="@color/colorPrimary"
-
-        />
+        app:backgroundTint="@color/colorPrimary" />
 
     <FrameLayout
         android:id="@+id/menu_layout"
@@ -69,31 +66,37 @@
             >
 
 
-            <Button
+            <ImageButton
                 android:id="@+id/add_litterature"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="A"
                 app:arc_origin="center"
+                android:src="@android:drawable/ic_input_add"
                 app:backgroundTint="@color/colorPrimary"
-                tools:ignore="MissingPrefix" />
+                android:tint="@android:color/white"
+                tools:ignore="MissingPrefix"
+                android:contentDescription="@string/Add_text" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/edit_litterature"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="B"
-                app:backgroundTint="@color/colorPrimary" />
+                android:src="@android:drawable/ic_menu_edit"
+                app:backgroundTint="@color/colorPrimary"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/Edit_text" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/share_litterature"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="C"
-                app:backgroundTint="@color/colorPrimary" />
+                android:src="@android:drawable/ic_menu_send"
+                app:backgroundTint="@color/colorPrimary"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/Send_text" />
 
         </com.ogaclejapan.arclayout.ArcLayout>
 
