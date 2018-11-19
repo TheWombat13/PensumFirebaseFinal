@@ -64,6 +64,10 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
 
         ViewLitterature_Fragment nextFrag = new ViewLitterature_Fragment();
 
+
+        nextFrag.setArguments(bundle);
+
+
         nextFrag.setSharedElementEnterTransition(new ChangeBounds().setDuration(2000));
         nextFrag.setArguments(bundle);
 
