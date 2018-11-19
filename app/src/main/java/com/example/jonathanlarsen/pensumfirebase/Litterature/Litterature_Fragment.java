@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,8 +34,9 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
     private ExpandebleMenu expandebleMenu;
 
     private Toast toast = null;
+    private String ToDo = "Not implented yet!";
 
-    private Button addLitterature, editLitterature, shareLitterature;
+    private ImageButton addLitterature, editLitterature, shareLitterature;
     private ImageView itemImage;
 
     public static int pensumView;
@@ -141,14 +143,24 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
             return;
         }
 
-        if (v.getId() == R.id.add_litterature) {
-            AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
+        switch (v.getId()) {
+            case R.id.add_litterature:
+                AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
 
-            AppCompatActivity activity = (AppCompatActivity) getContext();
-            activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
-                    .addToBackStack(null)
-                    .commit();
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+                break;
+            case R.id.edit_litterature:
+                Toast.makeText(getActivity().getApplicationContext(), ToDo, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.share_litterature:
+                Toast.makeText(getActivity().getApplicationContext(), ToDo, Toast.LENGTH_SHORT).show();
+                break;
+                default:
+
         }
 
         if (v instanceof Button) {
