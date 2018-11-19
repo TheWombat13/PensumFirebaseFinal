@@ -10,6 +10,7 @@
 
     <!-- Toolbar titles -->
     <string name="pensum_title">Pensum</string>
+    <string name="litterature_title">Værker</string>
 
     <!-- Fragment_AddPensen EditText -->
     <string name="hint_pensum_title">Titel</string>

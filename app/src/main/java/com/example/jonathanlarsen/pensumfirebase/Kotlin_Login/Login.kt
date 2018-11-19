@@ -197,7 +197,6 @@ class Login: ProgressActivity(), View.OnClickListener{
             R.id.emailCreateAccountButton -> createAccount(emailEditText.text.toString(), passEditText.text.toString())
             R.id.emailSignInButton -> signIn(emailEditText.text.toString(), passEditText.text.toString())
         }
-    System.out.println("Creating account")
 
     }
 

@@ -54,7 +54,7 @@ public class PensumListElementViewHolder extends RecyclerView.ViewHolder impleme
 
         AppCompatActivity activity = (AppCompatActivity) v.getContext();
         activity.getSupportFragmentManager().beginTransaction()
-                .replace(R.id.MiddleContainer, nextFrag,"findThisFragment")
+                .replace(R.id.MiddleContainer, nextFrag,"Litterature_fragment")
                 .addToBackStack(null)
                 .commit();
     }

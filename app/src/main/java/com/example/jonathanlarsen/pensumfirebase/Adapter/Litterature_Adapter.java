@@ -21,6 +21,7 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
     public LitteratureListElementViewHolder vh;
     private int i;
+    public static Boolean deleteState = false;
 
     @NonNull
     @Override
@@ -39,6 +40,7 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
         vh.publishedYear = view.findViewById(R.id.published_year);
         vh.writenYear = view.findViewById(R.id.written_year);
         vh.pages = view.findViewById(R.id.littarature_pages);
+        vh.image = view.findViewById(R.id.image);
 
         vh.delete = view.findViewById(R.id.delete_checkbox);
 
@@ -68,6 +70,10 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
             vh.pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getPages()));
 
+            if (deleteState) {
+                vh.delete.setVisibility(View.VISIBLE);
+            } else
+                vh.delete.setVisibility(View.GONE);
 
         }
 

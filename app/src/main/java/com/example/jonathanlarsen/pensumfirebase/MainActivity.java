@@ -10,6 +10,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
@@ -27,7 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import static com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter.deleteState;
+import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.recyclerView;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
 import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
@@ -68,7 +74,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public static String pensum_expand_key = "something";
 
+    /*
+     * Toolbar support
+     */
     public Toolbar toolbar;
+    public static MenuItem item;
+
     private Fragment pensumlist_fragment, expanded_pensum;
     private String choosen_pensum_to_expand;
 
@@ -175,6 +186,23 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /*
+     * Toolbar support
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar, menu);
+        item = menu.findItem(R.id.action_delete);
+        item.setVisible(false);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+    //end
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -183,7 +211,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (deleteState) {
+            deleteState = false;
+            item.setVisible(false);
+
+            Fragment frg = getSupportFragmentManager().findFragmentByTag("Litterature_fragment");
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.detach(frg);
+            ft.attach(frg);
+            ft.commit();
+        } else
+            super.onBackPressed();
     }
 
     //ToDo Look through this.

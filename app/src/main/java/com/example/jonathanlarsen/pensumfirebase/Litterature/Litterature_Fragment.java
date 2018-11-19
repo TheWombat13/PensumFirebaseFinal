@@ -2,6 +2,7 @@ package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.item;
 
 public class Litterature_Fragment extends Fragment implements View.OnClickListener{
 
@@ -62,9 +64,13 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
         /*
          * Toolbar support
          */
-        /*toolbar = view.findViewById(R.id.toolbar);
+        toolbar = getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();*/
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.litterature_title);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         /*
          * This method is apperently the correct way to do it, but it comes with a varity of issues
@@ -103,14 +109,11 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
 
 
         //Setting lines between cells
-        /*
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
+        /* recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),
                 DividerItemDecoration.VERTICAL));
 
         DividerItemDecoration itemDecorator = new DividerItemDecoration(this.getActivity(), DividerItemDecoration.HORIZONTAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(this.getActivity(), R.drawable.litterature_divider));
-
 */
         startLayout();
         startOnClickListener();
