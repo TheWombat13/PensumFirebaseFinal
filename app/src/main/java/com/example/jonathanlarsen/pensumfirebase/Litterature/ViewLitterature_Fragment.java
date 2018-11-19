@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
@@ -31,6 +32,8 @@ public class ViewLitterature_Fragment extends Fragment {
     public TextView publishedYear;
     public TextView pages;
 
+    public ImageView image;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +52,8 @@ public class ViewLitterature_Fragment extends Fragment {
         publishedYear = view.findViewById(R.id.published_year);
         writenYear = view.findViewById(R.id.written_year);
         pages = view.findViewById(R.id.littarature_pages);
+
+        image = view.findViewById(R.id.image);
 
         title.setText(litteratureData.get(litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getTitle());
@@ -69,6 +74,10 @@ public class ViewLitterature_Fragment extends Fragment {
 
 
 
+        title.setTransitionName("Title");
+        author.setTransitionName("Author");
+        pages.setTransitionName("Pages");
+        image.setTransitionName("Image");
 
 
         return view;

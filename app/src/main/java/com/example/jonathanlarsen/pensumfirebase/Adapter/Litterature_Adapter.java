@@ -39,6 +39,7 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
         vh.publishedYear = view.findViewById(R.id.published_year);
         vh.writenYear = view.findViewById(R.id.written_year);
         vh.pages = view.findViewById(R.id.littarature_pages);
+        vh.image = view.findViewById(R.id.image);
 
         vh.delete = view.findViewById(R.id.delete_checkbox);
 
