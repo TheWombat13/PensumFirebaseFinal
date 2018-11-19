@@ -21,6 +21,7 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
     public LitteratureListElementViewHolder vh;
     private int i;
+    public static Boolean deleteState = false;
 
     @NonNull
     @Override
@@ -68,6 +69,10 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
             vh.pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getPages()));
 
+            if (deleteState) {
+                vh.delete.setVisibility(View.VISIBLE);
+            } else
+                vh.delete.setVisibility(View.GONE);
 
         }
 
