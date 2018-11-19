@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         if (Test_disabled) {
             data = new DataObject();
             try {
-                //ToDo java.util.HashMap cannot be cast to java.util.List
                 pensumList = (List<String>)
                         InternalStorage.readObject(this, PENSUM_LIST_OBJECT_KEY);
                 pensumData = (HashMap<String, PensumModel>)

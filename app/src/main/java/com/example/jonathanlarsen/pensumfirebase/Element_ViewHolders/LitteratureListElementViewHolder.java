@@ -1,5 +1,6 @@
 package com.example.jonathanlarsen.pensumfirebase.Element_ViewHolders;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.ChangeBounds;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStor
 import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,33 +57,38 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
         Bundle bundle = new Bundle();
         bundle.putInt(LITTERATUREDATA_OBJECT_KEY, getAdapterPosition());
 
         ViewLitterature_Fragment nextFrag = new ViewLitterature_Fragment();
 
+
         nextFrag.setArguments(bundle);
 
 
         nextFrag.setSharedElementEnterTransition(new ChangeBounds().setDuration(2000));
+        nextFrag.setArguments(bundle);
 
-        title.setTransitionName("Title");
-        author.setTransitionName("Author");
-        pages.setTransitionName("Pages");
-        image.setTransitionName("Image");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ViewCompat.setTransitionName(view, this.title.getText().toString());
 
-        AppCompatActivity activity = (AppCompatActivity) v.getContext();
-        activity.getSupportFragmentManager().beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-                .replace(R.id.MiddleContainer, nextFrag, "findThisFragment")
-                .addToBackStack(null)
-                .addSharedElement(title, "Title")
-                .addSharedElement(author, "Author")
-                .addSharedElement(pages, "Pages")
-                .addSharedElement(image, "Image")
-                .commit();
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager().beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+                    .addSharedElement(view, ViewCompat.getTransitionName(view))
+                    .replace(R.id.MiddleContainer, nextFrag)
+                    .addToBackStack(null)
+                    .commit();
+
+        } else {
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.MiddleContainer, nextFrag)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
     @Override

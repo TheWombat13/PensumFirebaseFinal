@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-25dp"
                 android:layout_marginBottom="-25dp"
-                android:src="@drawable/books" />
+                android:src="@drawable/image_files_books" />
 
 
 
