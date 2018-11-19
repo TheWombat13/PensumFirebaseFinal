@@ -61,6 +61,7 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
         bundle.putInt(LITTERATUREDATA_OBJECT_KEY, getAdapterPosition());
 
         ViewLitterature_Fragment nextFrag = new ViewLitterature_Fragment();
+
         nextFrag.setArguments(bundle);
 
 
