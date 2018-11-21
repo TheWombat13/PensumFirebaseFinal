@@ -16,77 +16,85 @@
         android:layout_marginBottom="8dp"
         >
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="5dp"/>
-
-                <CheckBox
-                    android:id="@+id/delete_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:visibility="gone"/>
-
-            </RelativeLayout>
-
-
-
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/image_files_books"
-                android:layout_marginTop="-25dp"
-                android:layout_marginBottom="-25dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
                 />
 
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="3dp"
+                android:transitionName="titleView"/>
+
+            <CheckBox
+                android:id="@+id/delete_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/authorexp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forfatter: "
+                android:layout_below="@+id/title"
+                android:layout_marginStart="3dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_toEndOf="@+id/authorexp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
 
 
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginStart="10dp"
-                    android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/pagesexp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/author"
+                android:layout_marginStart="3dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="Normalsider: "
+                />
 
+            <TextView
+                android:id="@+id/littarature_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/pagesexp"
+                android:layout_below="@+id/author"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                />
 
-                <TextView
-                    android:id="@+id/littarature_pages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentEnd="true"
-
-                    />
-
-            </RelativeLayout>
-
+        </RelativeLayout>
 
         </LinearLayout>
-
-
 
     </com.google.android.material.card.MaterialCardView>
 

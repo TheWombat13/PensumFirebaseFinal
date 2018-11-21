@@ -69,6 +69,8 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
             //            pensumList.get(pensumView)).get(position)).getWritenYear()));
             vh.pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getPages()));
+            vh.image.setBackgroundResource(litteratureData.get(litteratureListView.get(
+                    pensumList.get(pensumView)).get(position)).getImgsrc());
 
             if (deleteState) {
                 vh.delete.setVisibility(View.VISIBLE);

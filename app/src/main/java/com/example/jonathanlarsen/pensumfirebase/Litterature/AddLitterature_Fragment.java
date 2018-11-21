@@ -68,7 +68,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         final String PREFERENCES_PERMISSION = "Preferences";
 
         private int characterCounter;
-        private int pages;
+        private int pages, imgsrc;
         private String title, author, authorYear, period, genre,
                 publisher, publishedYear, commentary;
         private String currentPhotoPath;
@@ -282,6 +282,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 return;
             } else {
                 this.title = setTitle.getText().toString();
+                this.imgsrc = R.drawable.image_files_books;
             }
 
             if (setAuthor.getText() != null) {
@@ -359,10 +360,9 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             }
 
             LitteratureModel temp = new LitteratureModel(this.title, this.author, this.period,
-                    this.genre, this.publisher, Integer.parseInt(this.authorYear),
+                    this.genre, this.publisher, this.imgsrc, Integer.parseInt(this.authorYear),
                     Integer.parseInt(this.publishedYear), this.pages);
 
-            //ToDo get the proper pensumList position
             litteratureListView.get(pensumList.get(pensumView)).add(this.title);
             litteratureData.put(litteratureListView.get(pensumList.get(pensumView)).get(litteratureListView.size()+1), temp);
 
@@ -376,8 +376,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 Log.d(TAG, "Save failed");
                 Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
             }
-            Log.d(TAG, litteratureData.get(litteratureListView.get(
-                    pensumList.get(pensumView)).get(litteratureListView.get(pensumList.get(pensumView)).size()-1)).getTitle());
         }
 
         private void closeFragment() {

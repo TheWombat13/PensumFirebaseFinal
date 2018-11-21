@@ -12,6 +12,7 @@ import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.transition.TransitionInflater;
 
@@ -79,9 +80,15 @@ public class ViewLitterature_Fragment extends Fragment {
                 pensumList.get(pensumView)).get(litteraturView)).getWritenYear()));
         pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPages()));
+        //int i= R.drawable.img2;
+
+        image.setBackgroundResource(litteratureData.get(litteratureListView.get(pensumList.get(pensumView)).get(litteraturView)).getImgsrc());
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            image.setTransitionName(title.getText().toString());
+
+            image.setTransitionName("hej");
+
         }
 
         return view;
