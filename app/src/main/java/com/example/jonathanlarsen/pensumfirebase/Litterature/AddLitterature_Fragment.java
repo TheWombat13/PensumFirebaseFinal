@@ -362,7 +362,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     this.genre, this.publisher, Integer.parseInt(this.authorYear),
                     Integer.parseInt(this.publishedYear), this.pages);
 
-            //ToDo get the proper pensumList position
             litteratureListView.get(pensumList.get(pensumView)).add(this.title);
             litteratureData.put(litteratureListView.get(pensumList.get(pensumView)).get(litteratureListView.size()+1), temp);
 
@@ -376,8 +375,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 Log.d(TAG, "Save failed");
                 Toast.makeText(getContext(), "Save failed!", Toast.LENGTH_LONG).show();
             }
-            Log.d(TAG, litteratureData.get(litteratureListView.get(
-                    pensumList.get(pensumView)).get(litteratureListView.get(pensumList.get(pensumView)).size()-1)).getTitle());
         }
 
         private void closeFragment() {
