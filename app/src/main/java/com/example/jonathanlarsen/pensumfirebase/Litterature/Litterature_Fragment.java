@@ -1,6 +1,7 @@
 package com.example.jonathanlarsen.pensumfirebase.Litterature;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
+import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.item;
 
 public class Litterature_Fragment extends Fragment implements View.OnClickListener{
@@ -108,7 +110,6 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
         if (bundle != null) {
             pensumView = bundle.getInt(PENSUM_BUNDLE_KEY, 0);
         }
-
 
         //Setting lines between cells
         /* recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(),

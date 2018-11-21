@@ -75,65 +75,65 @@ public class DataObject_Test extends DataObject {
          */
         litteratureModel = new LitteratureModel("Test1", "Dan Jørgensen Henriksen", "Romantikken", "Lyrik", "Gyldendahl", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(0), litteratureModel);
+        litteratureData.put(pensumList.get(0)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test2", "asdf", "asdf", "asdf", "sadf", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(1), litteratureModel);
+        litteratureData.put(pensumList.get(0)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test3", "sad", "asdf", "asfd", "asdf", R.drawable.image_files_books, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(2), litteratureModel);
+        litteratureData.put(pensumList.get(0)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test4", "asf", "asdf", "sadf", "sadf", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureListView.get(pensumList.get(0)).get(3), litteratureModel);
+        litteratureData.put(pensumList.get(0)+litteratureModel.getTitle(), litteratureModel);
 
 
         litteratureModel = new LitteratureModel("Test5", "", "", "", "", R.drawable.arthistory1, 1, 1, 2 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test6", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test7", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test8", "", "", "", "", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test9", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test10", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test11", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test12", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
 
         litteratureModel = new LitteratureModel("Test13", "", "", "", "", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test14", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 
         litteratureModel = new LitteratureModel("Test15", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
-        litteratureData.put(litteratureModel.getTitle(), litteratureModel);
+        litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 
         Log.d(TAG, "So far so fucking good!");
     }
