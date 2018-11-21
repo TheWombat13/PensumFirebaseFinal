@@ -41,7 +41,6 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     private String title, teacher, comment;
     private int pagesToGo;
 
-    //ToDo Doesn't support the variables "pages" & "pagesToGo"
     private EditText setTitle, setTeacher, setPagesToGo, setComment;
     private Button save, cancel;
 
@@ -79,8 +78,8 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
             case R.id.save_button:
                 Log.d(TAG, "onClick: Save");
 
-                setVariables();
                 if (!this.title.equals("")) {
+                    setVariables();
                     closeFragment();
                 } else {
                     showAlertMessage("nameError");
