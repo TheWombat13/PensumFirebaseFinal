@@ -20,7 +20,6 @@ import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataO
 public class Litterature_Adapter extends RecyclerView.Adapter {
 
     public LitteratureListElementViewHolder vh;
-    private int i;
     public static Boolean deleteState = false;
 
     @NonNull
@@ -29,8 +28,6 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.litteraturelist_item, parent, false);
         vh = new LitteratureListElementViewHolder(view);
-
-        i = litteratureListView.get(pensumList.get(pensumView)).size();
 
         vh.title = view.findViewById(R.id.title);
         vh.author = view.findViewById(R.id.author);
@@ -50,12 +47,14 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Log.d(TAG, "Listview size:" + i + " - Current position:"+ position);
+        Log.d(TAG, "Listview size:" +
+                litteratureListView.get(pensumList.get(pensumView)).size() +
+                " - Current position:"+ position);
 
-        if (position<i) {
-            vh.title.setText(litteratureData.get(litteratureListView.get(
+        if (position < litteratureListView.get(pensumList.get(pensumView)).size()) {
+            vh.title.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getTitle());
-            vh.author.setText(litteratureData.get(litteratureListView.get(
+            vh.author.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getAuthor());
             //vh.period.setText(litteratureData.get(litteratureListView.get(
             //            pensumList.get(pensumView)).get(position)).getPeriod());
@@ -67,9 +66,9 @@ public class Litterature_Adapter extends RecyclerView.Adapter {
             //            pensumList.get(pensumView)).get(position)).getPublishedYear()));
             //vh.writenYear.setText(String.valueOf(litteratureData.get(litteratureListView.get(
             //            pensumList.get(pensumView)).get(position)).getWritenYear()));
-            vh.pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+            vh.pages.setText(String.valueOf(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                         pensumList.get(pensumView)).get(position)).getPages()));
-            vh.image.setBackgroundResource(litteratureData.get(litteratureListView.get(
+            vh.image.setBackgroundResource(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                     pensumList.get(pensumView)).get(position)).getImgsrc());
 
             if (deleteState) {

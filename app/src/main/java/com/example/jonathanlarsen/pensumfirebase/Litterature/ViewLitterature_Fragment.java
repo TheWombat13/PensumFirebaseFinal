@@ -64,25 +64,25 @@ public class ViewLitterature_Fragment extends Fragment {
 
         image = view.findViewById(R.id.image);
 
-        title.setText(litteratureData.get(litteratureListView.get(
+        title.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getTitle());
-        author.setText(litteratureData.get(litteratureListView.get(
+        author.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getAuthor());
-        period.setText(litteratureData.get(litteratureListView.get(
+        period.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPeriod());
-        genre.setText(litteratureData.get(litteratureListView.get(
+        genre.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getGenre());
-        publisher.setText(litteratureData.get(litteratureListView.get(
+        publisher.setText(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPublisher());
-        publishedYear.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+        publishedYear.setText(String.valueOf(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPublishedYear()));
-        writenYear.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+        writenYear.setText(String.valueOf(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getWritenYear()));
-        pages.setText(String.valueOf(litteratureData.get(litteratureListView.get(
+        pages.setText(String.valueOf(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(
                 pensumList.get(pensumView)).get(litteraturView)).getPages()));
         //int i= R.drawable.img2;
 
-        image.setBackgroundResource(litteratureData.get(litteratureListView.get(pensumList.get(pensumView)).get(litteraturView)).getImgsrc());
+        image.setBackgroundResource(litteratureData.get(pensumList.get(pensumView)+litteratureListView.get(pensumList.get(pensumView)).get(litteraturView)).getImgsrc());
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

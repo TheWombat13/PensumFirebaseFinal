@@ -213,14 +213,17 @@ public class MainActivity extends AppCompatActivity {
         if (deleteState) {
             deleteState = false;
             item.setVisible(false);
-
-            Fragment frg = getSupportFragmentManager().findFragmentByTag("Litterature_fragment");
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.detach(frg);
-            ft.attach(frg);
-            ft.commit();
+            updateLitteratureAdapter();
         } else
             super.onBackPressed();
+    }
+
+    public void updateLitteratureAdapter () {
+        Fragment frg = getSupportFragmentManager().findFragmentByTag("Litterature_fragment");
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.detach(frg);
+        ft.attach(frg);
+        ft.commit();
     }
 
     //ToDo Look through this.

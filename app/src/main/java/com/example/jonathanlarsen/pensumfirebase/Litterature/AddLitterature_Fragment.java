@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -364,7 +366,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                     Integer.parseInt(this.publishedYear), this.pages);
 
             litteratureListView.get(pensumList.get(pensumView)).add(this.title);
-            litteratureData.put(litteratureListView.get(pensumList.get(pensumView)).get(litteratureListView.size()+1), temp);
+            litteratureData.put(pensumList.get(pensumView)+temp.getTitle(), temp);
 
             try {
                 InternalStorage.writeObject(getContext(), LITTERATURE_LIST_OBJECT_KEY, litteratureListView);
