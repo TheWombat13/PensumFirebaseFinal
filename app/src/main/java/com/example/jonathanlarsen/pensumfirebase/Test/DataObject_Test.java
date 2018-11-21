@@ -2,6 +2,7 @@ package com.example.jonathanlarsen.pensumfirebase.Test;
 
 import android.util.Log;
 
+import com.example.jonathanlarsen.pensumfirebase.R;
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
 import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
@@ -72,65 +73,65 @@ public class DataObject_Test extends DataObject {
             Litteraturhistorie 2
             Dansk
          */
-        litteratureModel = new LitteratureModel("Test1", "Dan Jørgensen", "Romantikken", "Lyrik", "Gyldendahl", 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Test1", "Dan Jørgensen Henriksen", "Romantikken", "Lyrik", "Gyldendahl", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(0), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test2", "asdf", "asdf", "asdf", "sadf", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test2", "asdf", "asdf", "asdf", "sadf", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(1), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test3", "sad", "asdf", "asfd", "asdf", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test3", "sad", "asdf", "asfd", "asdf", R.drawable.image_files_books, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(2), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test4", "asf", "asdf", "sadf", "sadf", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test4", "asf", "asdf", "sadf", "sadf", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureListView.get(pensumList.get(0)).get(3), litteratureModel);
 
 
-        litteratureModel = new LitteratureModel("Test5", "", "", "", "", 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Test5", "", "", "", "", R.drawable.arthistory1, 1, 1, 2 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test6", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test6", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test7", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test7", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test8", "", "", "", "", 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Test8", "", "", "", "", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test9", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test9", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test10", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test10", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test11", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test11", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test12", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test12", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
 
-        litteratureModel = new LitteratureModel("Test13", "", "", "", "", 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Test13", "", "", "", "", R.drawable.img2, 1, 1, 2 );
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test14", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test14", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test15", "", "", "", "", 1, 2, 3);
+        litteratureModel = new LitteratureModel("Test15", "", "", "", "", R.drawable.img2, 1, 2, 3);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(litteratureModel.getTitle(), litteratureModel);
 

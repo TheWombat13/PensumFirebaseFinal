@@ -9,6 +9,7 @@ public class LitteratureModel implements Serializable {
     private String period;
     private String genre;
     private String publisher;
+    private int imgsrc;
     private int writenYear;
     private int publishedYear;
     private int pages;
@@ -19,13 +20,14 @@ public class LitteratureModel implements Serializable {
 
     public LitteratureModel
             (String title, String author, String period, String genre,
-             String publisher, int writenYear, int publishedYear, int pages) {
+             String publisher, int imgsrc, int writenYear, int publishedYear, int pages) {
 
         this.title = title;
         this.author = author;
         this.period = period;
         this.genre = genre;
         this.publisher = publisher;
+        this.imgsrc = imgsrc;
         this.writenYear = writenYear;
         this.publishedYear = publishedYear;
         this.pages = pages;
@@ -49,6 +51,10 @@ public class LitteratureModel implements Serializable {
 
     public String getPublisher() {
         return publisher;
+    }
+
+    public int getImgsrc() {
+        return imgsrc;
     }
 
     public int getWritenYear() {
@@ -81,6 +87,10 @@ public class LitteratureModel implements Serializable {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public void setImgsrc(int imgsrc) {
+        this.imgsrc = imgsrc;
     }
 
     public void setWritenYear(int writenYear) {

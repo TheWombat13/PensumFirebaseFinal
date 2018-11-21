@@ -68,11 +68,11 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
         nextFrag.setArguments(bundle);
 
 
-        nextFrag.setSharedElementEnterTransition(new ChangeBounds().setDuration(2000));
+        nextFrag.setSharedElementEnterTransition(new ChangeBounds().setDuration(200));
         nextFrag.setArguments(bundle);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ViewCompat.setTransitionName(view, this.title.getText().toString());
+            ViewCompat.setTransitionName(view, "hej");
 
             AppCompatActivity activity = (AppCompatActivity) view.getContext();
             activity.getSupportFragmentManager().beginTransaction()
