@@ -57,31 +57,37 @@
             app:arc_reverseAngle="false"
             >
 
-            <Button
+            <ImageButton
                 android:id="@+id/add_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="A"
                 app:arc_origin="center"
+                android:src="@android:drawable/ic_input_add"
+                app:backgroundTint="@color/colorPrimary"
+                android:tint="@android:color/white"
                 tools:ignore="MissingPrefix"
-                app:backgroundTint="@color/colorPrimary"/>
+                android:contentDescription="@string/Add_text" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/edit_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="B"
-                app:backgroundTint="@color/colorPrimary"/>
+                android:src="@android:drawable/ic_menu_edit"
+                app:backgroundTint="@color/colorPrimary"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/Edit_text" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/send_pensum"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="C"
-                app:backgroundTint="@color/colorPrimary"/>
+                android:src="@android:drawable/ic_menu_send"
+                app:backgroundTint="@color/colorPrimary"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/Send_text" />
 
         </com.ogaclejapan.arclayout.ArcLayout>
 

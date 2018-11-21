@@ -290,7 +290,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             if (setAuthor.getText() != null) {
                 this.author = setAuthor.getText().toString();
             } else {
-                this.author = "";
+                this.author = "Ukendt";
             }
             if (setAuthorYear.getText() != null) {
                 this.authorYear = setAuthorYear.getText().toString();
@@ -300,12 +300,12 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             if (setPeriod.getText() != null) {
                 this.period = setPeriod.getText().toString();
             } else {
-                this.period = "";
+                this.period = "Ukendt";
             }
             if (setGenre.getText() != null) {
                 this.genre = setGenre.getText().toString();
             } else {
-                this.genre = "";
+                this.genre = "Ukendt";
             }
             if (pages != 0) {
                 this.pages = Integer.parseInt(setPages.getText().toString());
@@ -315,12 +315,12 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             if (setPublisher.getText() != null) {
                 this.publisher = setPublisher.getText().toString();
             } else {
-                this.publisher = "";
+                this.publisher = "Ukendt";
             }
             if (setPublishedYear.getText() != null) {
                 this.publishedYear = setPublishedYear.getText().toString();
             } else {
-                this.publishedYear = "";
+                this.publishedYear = "Ukendt";
             }
             if (setCommentary.getText() != null) {
                 this.commentary = setCommentary.getText().toString();
@@ -486,7 +486,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
 
             switch (message) {
                 case "nameError":
-
                     alertDialog.setMessage(getText(R.string.errorNameMissing));
                     break;
                 case "textRecognizerError":

@@ -77,13 +77,7 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
         switch (view.getId()) {
             case R.id.save_button:
                 Log.d(TAG, "onClick: Save");
-
-                if (!this.title.equals("")) {
-                    setVariables();
-                    closeFragment();
-                } else {
-                    showAlertMessage("nameError");
-                }
+                setVariables();
                 break;
 
             case  R.id.cancel_button:
@@ -98,15 +92,47 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
     }
 
     private void setVariables() {
-        this.title = setTitle.getText().toString();
-        this.teacher = setTeacher.getText().toString();
+
+        if (setTitle.getText() == null || setTitle.getText().toString().equals("")) {
+            setTitle.setHighlightColor(getResources().getColor(R.color.colorError));
+            setTitle.setHintTextColor(getResources().getColor(R.color.colorError));
+            setTitle.setError("Skal udfyldes!");
+            setTitle.requestFocus();
+            return;
+        } else {
+            this.title = setTitle.getText().toString();
+        }
+
+        if (setTeacher.getText() == null || setTeacher.getText().toString().equals("")) {
+            this.teacher = "Ingen underviser.";
+        } else {
+            this.teacher = setTeacher.getText().toString();
+        }
+
+        if (setPagesToGo.getText() == null || setPagesToGo.getText().toString().equals("")) {
+            Log.d(TAG, "number failed");
+            setPagesToGo.setHighlightColor(getResources().getColor(R.color.colorError));
+            setPagesToGo.setHintTextColor(getResources().getColor(R.color.colorError));
+            setPagesToGo.setError("Skal udfyldes!");
+            setPagesToGo.requestFocus();
+            return;
+        } else {
+            try {
+                this.pagesToGo = Integer.parseInt(setPagesToGo.getText().toString());
+            } catch (NumberFormatException e) {
+                Log.d(TAG, "" + e);
+                setPagesToGo.setHighlightColor(getResources().getColor(R.color.colorError));
+                setPagesToGo.setHintTextColor(getResources().getColor(R.color.colorError));
+                setPagesToGo.setError("Skal være et tal!");
+                setPagesToGo.requestFocus();
+                return;
+            }
+        }
+
         this.comment = setComment.getText().toString();
-        this.pagesToGo = Integer.parseInt(setPagesToGo.getText().toString());
 
         savePensum();
-
-        Log.d(TAG, "Name:" + title +
-                " Author:" + teacher);
+        closeFragment();
     }
 
     /*
@@ -143,7 +169,6 @@ public class AddPensum_Fragment extends Fragment implements View.OnClickListener
 
         switch (message) {
             case "nameError":
-
                 alertDialog.setMessage(getText(R.string.errorNameMissing));
                 break;
             default:
