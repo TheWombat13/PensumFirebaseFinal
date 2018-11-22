@@ -111,12 +111,10 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
                             (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
                     if (viewHolder.delete.isChecked()) {
                         //ToDo Find values
-                        litteratureListView.remove(1);
-                        litteratureData.remove(1);
+                        Toast.makeText(view.getContext(), "Not Implemented yet!", Toast.LENGTH_SHORT).show();
                     }
                 }
                 saveState();
-                Toast.makeText(view.getContext(), "FUCK YOU!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
