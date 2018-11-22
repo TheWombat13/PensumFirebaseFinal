@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Kotlin_Login
+package com.example.jonathanlarsen.pensumfirebase.kotlinLogin
 
 import android.app.ProgressDialog
 import android.content.Context

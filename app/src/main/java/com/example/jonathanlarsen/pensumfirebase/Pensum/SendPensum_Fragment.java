@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,11 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class SendPensum_Fragment extends Fragment implements View.OnClickListener {
 

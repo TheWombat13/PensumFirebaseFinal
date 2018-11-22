@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
 
 import java.io.IOException;
 
@@ -17,8 +17,8 @@ import androidx.fragment.app.Fragment;
 
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
 
 public class EditPensum_Fragment extends Fragment implements View.OnClickListener {
 

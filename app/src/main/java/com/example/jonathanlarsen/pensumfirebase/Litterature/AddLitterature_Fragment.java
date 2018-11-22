@@ -17,9 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.util.SparseArray;
@@ -31,8 +29,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.MainActivity;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.LitteratureModel;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
@@ -53,9 +51,9 @@ import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.MY_PERMISSIONS_REQUEST_CAMERA;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.startInstalledAppDetailsActivity;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class AddLitterature_Fragment extends Fragment implements View.OnClickListener{
 

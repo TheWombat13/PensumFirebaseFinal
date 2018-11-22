@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Kotlin_Login.Login">
+        <activity android:name=".kotlinLogin.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Kotlin_Login.ProgressActivity" />
+        <activity android:name=".kotlinLogin.ProgressActivity" />
 
     </application>
 

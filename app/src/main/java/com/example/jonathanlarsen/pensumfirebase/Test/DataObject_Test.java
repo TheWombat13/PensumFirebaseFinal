@@ -3,9 +3,9 @@ package com.example.jonathanlarsen.pensumfirebase.Test;
 import android.util.Log;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.PensumModel;
 
 import java.util.ArrayList;
 import java.util.Objects;
