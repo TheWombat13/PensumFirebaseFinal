@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
+package com.example.jonathanlarsen.pensumfirebase.StorageDataModels;
 
 import java.io.Serializable;
 import java.util.ArrayList;

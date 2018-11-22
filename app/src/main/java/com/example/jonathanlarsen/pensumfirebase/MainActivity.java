@@ -12,13 +12,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.LitteratureModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.PensumModel;
 import com.example.jonathanlarsen.pensumfirebase.Test.DataObject_Test;
 
 import java.io.IOException;
@@ -33,11 +32,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import static com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adapter.deleteState;
-import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.recyclerView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class MainActivity extends AppCompatActivity {
 

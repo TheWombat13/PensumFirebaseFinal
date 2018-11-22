@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
 
 import java.io.IOException;
 
@@ -24,8 +24,8 @@ import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment.context;
 import static com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment.recyclerView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class PensumListElementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 

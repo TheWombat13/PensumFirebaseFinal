@@ -10,10 +10,10 @@ import com.example.jonathanlarsen.pensumfirebase.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class PensumList_Adapter extends RecyclerView.Adapter {
 

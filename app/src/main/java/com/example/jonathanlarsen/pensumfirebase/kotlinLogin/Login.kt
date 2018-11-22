@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Kotlin_Login
+package com.example.jonathanlarsen.pensumfirebase.kotlinLogin
 
 import android.content.Context
 import android.content.Intent

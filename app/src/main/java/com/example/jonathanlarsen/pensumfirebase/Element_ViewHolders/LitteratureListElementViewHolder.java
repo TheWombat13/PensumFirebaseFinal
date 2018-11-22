@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Litterature.ViewLitterature_Fragment;
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
 
 import java.io.IOException;
 
@@ -26,15 +26,11 @@ import static com.example.jonathanlarsen.pensumfirebase.Adapter.Litterature_Adap
 import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.recyclerView;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.item;
 import static com.example.jonathanlarsen.pensumfirebase.Pensum.Pensum_Fragment.context;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
 
 public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
@@ -109,14 +105,12 @@ public class LitteratureListElementViewHolder extends RecyclerView.ViewHolder im
                 for (int i = 0; i < recyclerView.getAdapter().getItemCount(); i++) {
                     LitteratureListElementViewHolder viewHolder =
                             (LitteratureListElementViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-                    if (viewHolder.delete.isChecked()) {
+                    Toast.makeText(view.getContext(), "Not Implemented yet!", Toast.LENGTH_SHORT).show();
+                    /*if (viewHolder.delete.isChecked()) {
                         //ToDo Find values
-                        litteratureListView.remove(1);
-                        litteratureData.remove(1);
-                    }
+                    }*/
                 }
                 saveState();
-                Toast.makeText(view.getContext(), "FUCK YOU!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });

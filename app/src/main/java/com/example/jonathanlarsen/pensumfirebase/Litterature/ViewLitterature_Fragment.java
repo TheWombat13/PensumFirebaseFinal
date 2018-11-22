@@ -8,19 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jonathanlarsen.pensumfirebase.ExpandebleMenu;
 import com.example.jonathanlarsen.pensumfirebase.R;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.transition.TransitionInflater;
 
 import static com.example.jonathanlarsen.pensumfirebase.Litterature.Litterature_Fragment.pensumView;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class ViewLitterature_Fragment extends Fragment {
 

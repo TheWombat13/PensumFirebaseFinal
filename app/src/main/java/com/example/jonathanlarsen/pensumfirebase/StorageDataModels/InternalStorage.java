@@ -1,4 +1,4 @@
-package com.example.jonathanlarsen.pensumfirebase.Storage_DataModels;
+package com.example.jonathanlarsen.pensumfirebase.StorageDataModels;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -15,10 +15,10 @@ import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class InternalStorage implements Serializable {
 

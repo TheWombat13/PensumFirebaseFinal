@@ -15,22 +15,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.R;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.InternalStorage;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.LitteratureModel;
-import com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.PensumModel;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.InternalStorage;
+import com.example.jonathanlarsen.pensumfirebase.StorageDataModels.PensumModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATUREDATA_OBJECT_KEY;
-import static com.example.jonathanlarsen.pensumfirebase.MainActivity.LITTERATURE_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUMDATA_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.PENSUM_LIST_OBJECT_KEY;
 import static com.example.jonathanlarsen.pensumfirebase.MainActivity.TAG;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.litteratureListView;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumData;
-import static com.example.jonathanlarsen.pensumfirebase.Storage_DataModels.DataObject.pensumList;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.litteratureListView;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumData;
+import static com.example.jonathanlarsen.pensumfirebase.StorageDataModels.DataObject.pensumList;
 
 public class AddPensum_Fragment extends Fragment implements View.OnClickListener{
 
