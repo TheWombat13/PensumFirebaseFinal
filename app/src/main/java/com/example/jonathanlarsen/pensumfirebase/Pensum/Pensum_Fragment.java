@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.jonathanlarsen.pensumfirebase.Adapter.PensumList_Adapter;
@@ -33,7 +34,7 @@ public class Pensum_Fragment extends Fragment implements View.OnClickListener{
     private Toast toast = null;
 
     private Toolbar toolbar;
-    private Button addPensum, editPensum, sendPensum;
+    private ImageButton addPensum, editPensum, sendPensum;
 
     /*
     private ArcLayout arcLayout;
