@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OCR-Plugin</string>
+    <string name="app_name">PensumCreator</string>
 
     <!-- Generic messages -->
     <string name="ToDo">TODO</string>

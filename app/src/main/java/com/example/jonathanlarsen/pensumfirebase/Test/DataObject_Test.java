@@ -26,14 +26,14 @@ public class DataObject_Test extends DataObject {
         Initializing the List to be loaded as frontpage listview with each needed pensum
          */
         pensumList.add("Dansk litteratur efter 1925");
-        pensumList.add("Litteraturhistorie 2");
-        pensumList.add("Dansk");
+        pensumList.add("Den Hvide Kube");
+        pensumList.add("Litteraturehistorie 2");
 
         /*
         Setting headers for each pensum created, here we set the headers as:
-            Kunst-historie
+            Dansk litteratur efter 1925
+            Den Hvide Kube
             Litteraturhistorie 2
-            Dansk
          */
         litteratureListView.put(pensumList.get(0), list = new ArrayList<>());
         litteratureListView.put(pensumList.get(1), list = new ArrayList<>());
@@ -42,36 +42,36 @@ public class DataObject_Test extends DataObject {
         /*
         Applying meta-data for each pensum
         Data model for respectively:
-            Kunst-historie
+            Dansk litteratur efter 1925
+            Den Hvide Kube
             Litteraturhistorie 2
-            Dansk
          */
         pensumData.put(pensumList.get(0), new PensumModel());
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setTitle(pensumList.get(0));
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setPages(0);
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setPagesToGo(1200);
         Objects.requireNonNull(pensumData.get(pensumList.get(0))).setTeacher("Henrik Andresen");
-        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Halløj");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("");
 
         pensumData.put(pensumList.get(1), new PensumModel());
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setTitle(pensumList.get(1));
         Objects.requireNonNull(pensumData.get(pensumList.get(1))).setPages(0);
-        Objects.requireNonNull(pensumData.get(pensumList.get(1))).setPagesToGo(500);
-        Objects.requireNonNull(pensumData.get(pensumList.get(1))).setTeacher("Kim Byvald");
-        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Hej");
+        Objects.requireNonNull(pensumData.get(pensumList.get(1))).setPagesToGo(800);
+        Objects.requireNonNull(pensumData.get(pensumList.get(1))).setTeacher("Sigurd Sigurdson");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Valgfag");
 
         pensumData.put(pensumList.get(2), new PensumModel());
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setTitle(pensumList.get(2));
         Objects.requireNonNull(pensumData.get(pensumList.get(2))).setPages(0);
-        Objects.requireNonNull(pensumData.get(pensumList.get(2))).setPagesToGo(900);
-        Objects.requireNonNull(pensumData.get(pensumList.get(2))).setTeacher("JØK");
-        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("Hejsa");
+        Objects.requireNonNull(pensumData.get(pensumList.get(2))).setPagesToGo(400);
+        Objects.requireNonNull(pensumData.get(pensumList.get(2))).setTeacher("Ulrikke Ulriksen");
+        Objects.requireNonNull(pensumData.get(pensumList.get(0))).setComment("");
 
         /*
         Adding the litterature-data & meta-data for each sub litterature for respectively:
-            Kunst-historie
+            Dansk litteratur efter 1925
+            Den Hvide Kube
             Litteraturhistorie 2
-            Dansk
          */
         litteratureModel = new LitteratureModel("Fiskerne", "Kirk, Hans", "", "Epik", "Gyldendahls Tranebøger", R.drawable.img2, 1928, 2005, 271 );
         litteratureListView.get(pensumList.get(0)).add(litteratureModel.getTitle());
@@ -90,48 +90,48 @@ public class DataObject_Test extends DataObject {
         litteratureData.put(pensumList.get(0)+litteratureModel.getTitle(), litteratureModel);
 
 
-        litteratureModel = new LitteratureModel("Test5", "", "", "", "", R.drawable.arthistory1, 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Kuratering af Samtidskunst", "Ault, Julie", "", "", "Museet for Samtidskunst", R.drawable.arthistory1, 2011, 2011, 31 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test6", "", "", "", "", R.drawable.img2, 1, 2, 3);
+        litteratureModel = new LitteratureModel("Op Art", "Barret, Cyril", "", "", "London: Studio Vista", R.drawable.img2, 1979, 1979, 49);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test7", "", "", "", "", R.drawable.img2, 1, 2, 3);
+        litteratureModel = new LitteratureModel("The Language of movement", "Brett, Guy", "", "", "London: Studio Vista", R.drawable.img2, 1968, 1968, 38);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test8", "", "", "", "", R.drawable.img2, 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Radical Museology, or, What's 'Contemporary' in Museums of Contemporary Art", "Bishop, Claire", "", "", "London: Koenig Books", R.drawable.img2, 2013, 2013, 11 );
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test9", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
+        litteratureModel = new LitteratureModel("Når børn møder kultur. En antologi om formidling i børnehøjde", "Christensen, Per B", "", "", "Børnekulturens Netværk", R.drawable.arthistory1, 2006, 2006, 56);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test10", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
+        litteratureModel = new LitteratureModel("\"Eye Attack Op Art og Kinetisk Kunst\" in Louisiana Revy: Eye Attack. Vol. 56. Nr. 2.", "Colstrup, Tine", "", "", "København: Gyldendal", R.drawable.arthistory1, 2016, 2016, 35);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test11", "", "", "", "", R.drawable.img2, 1, 2, 3);
+        litteratureModel = new LitteratureModel("An Introduction to Art Criticism", "Houston, Kerr", "", "", "London: Pearson", R.drawable.img2, 2013, 2013, 27);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test12", "", "", "", "", R.drawable.arthistory1, 1, 2, 3);
+        litteratureModel = new LitteratureModel("The future is self-organized", "Jakobsen, Jakob", "", "", "", R.drawable.arthistory1, 2005, 2, 4);
         litteratureListView.get(pensumList.get(1)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(1)+litteratureModel.getTitle(), litteratureModel);
 
 
-        litteratureModel = new LitteratureModel("Test13", "", "", "", "", R.drawable.img2, 1, 1, 2 );
+        litteratureModel = new LitteratureModel("Den Politiske Kandestøber", "Holberg, Ludvig", "Oplysningen", "Drama", "Dansk Lærerforening", R.drawable.img2, 1723, 1964, 111 );
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test14", "", "", "", "", R.drawable.img2, 1, 2, 3);
+        litteratureModel = new LitteratureModel("Forførerens Dagbog Fortælling Fra Enten Eller", "Kierkegaard, Søren", "Romantik", "Epik", "Det Lille Forlag", R.drawable.img2, 1843, 2007, 125);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 
-        litteratureModel = new LitteratureModel("Test15", "", "", "", "", R.drawable.img2, 1, 2, 3);
+        litteratureModel = new LitteratureModel("Gengangere", "Ibsen, Henrik", "DMG", "Drama", "DRAMA", R.drawable.img2, 1881, 2016, 70);
         litteratureListView.get(pensumList.get(2)).add(litteratureModel.getTitle());
         litteratureData.put(pensumList.get(2)+litteratureModel.getTitle(), litteratureModel);
 

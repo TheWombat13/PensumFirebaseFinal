@@ -310,7 +310,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             if (pages != 0) {
                 this.pages = Integer.parseInt(setPages.getText().toString());
             } else {
-                this.pages = 0;
+                getPages();
+                return;
             }
             if (setPublisher.getText() != null) {
                 this.publisher = setPublisher.getText().toString();
@@ -346,7 +347,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
         }
 
         private void setScannedPages () {
-            this.pages = (getCharacters() * Integer.parseInt(setPages.getText().toString())) / 2400;
+            this.pages = (getCharacters() * this.pages) / 2400;
         }
 
         /*
@@ -360,6 +361,8 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             if (this.publishedYear.equals("")) {
                 this.publishedYear = "0000";
             }
+
+            setScannedPages();
 
             LitteratureModel temp = new LitteratureModel(this.title, this.author, this.period,
                     this.genre, this.publisher, this.imgsrc, Integer.parseInt(this.authorYear),
@@ -446,7 +449,6 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             protected void onPostExecute(String result) {
                 Toast.makeText(getActivity(),
                         "Text Recognition completed!", Toast.LENGTH_SHORT).show();
-                setScannedPages();
             }
         }
 
@@ -464,6 +466,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                             Log.d(TAG, "Input number:" + input);
                             if(android.text.TextUtils.isDigitsOnly(input)) {
                                 pages = Integer.parseInt(input);
+                                setPages.setText(input);
                             } else {
                                 //ToDo find better solution!
                                 getPages();
