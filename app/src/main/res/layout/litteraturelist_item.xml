@@ -42,7 +42,8 @@
                 android:textStyle="bold"
                 android:layout_marginTop="3dp"
                 android:layout_marginStart="3dp"
-                android:transitionName="titleView"/>
+                android:ellipsize="end"
+                android:maxLines="1"/>
 
             <CheckBox
                 android:id="@+id/delete_checkbox"
@@ -68,7 +69,9 @@
                 android:layout_below="@+id/title"
                 android:layout_toEndOf="@+id/authorexp"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1"/>
 
 
             <TextView
