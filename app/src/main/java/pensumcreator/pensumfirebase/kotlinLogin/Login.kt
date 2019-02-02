@@ -84,7 +84,7 @@ class Login: ProgressActivity(), View.OnClickListener{
 
 
 
-        //showProgressDialog()
+        showProgressDialog()
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->

@@ -11,14 +11,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AlertDialog;
-
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -28,9 +20,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import pensumcreator.pensumfirebase.MainActivity;
-import pensumcreator.pensumfirebase.StorageDataModels.InternalStorage;
-import pensumcreator.pensumfirebase.StorageDataModels.LitteratureModel;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
@@ -41,7 +30,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import pensumcreator.pensumfirebase.MainActivity;
 import pensumcreator.pensumfirebase.R;
+import pensumcreator.pensumfirebase.StorageDataModels.InternalStorage;
+import pensumcreator.pensumfirebase.StorageDataModels.LitteratureModel;
 
 import static android.app.Activity.RESULT_OK;
 import static pensumcreator.pensumfirebase.Litterature.Litterature_Fragment.pensumView;
@@ -80,7 +78,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
                 setPages, setPublisher, setPublishedYear, setCommentary;
         private Button save, ScanStorageImg, ScanNewImg;
 
-        @Nullable
+    @Nullable
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_add_litterature, container, false);
@@ -99,8 +97,11 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             save = view.findViewById(R.id.save_button);
             ScanNewImg = view.findViewById(R.id.ScanImg_Button);
 
+
+
             startLayout();
             startOnClickListeners();
+
 
             return view;
         }
@@ -142,6 +143,7 @@ public class AddLitterature_Fragment extends Fragment implements View.OnClickLis
             ScanStorageImg.setOnClickListener(this);
             ScanNewImg.setOnClickListener(this);
         }
+
 
         @Override
         public void onClick(View view) {

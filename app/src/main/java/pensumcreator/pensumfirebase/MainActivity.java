@@ -13,13 +13,6 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import pensumcreator.pensumfirebase.Pensum.Pensum_Fragment;
-import pensumcreator.pensumfirebase.StorageDataModels.DataObject;
-import pensumcreator.pensumfirebase.StorageDataModels.InternalStorage;
-import pensumcreator.pensumfirebase.StorageDataModels.LitteratureModel;
-import pensumcreator.pensumfirebase.StorageDataModels.PensumModel;
-import pensumcreator.pensumfirebase.Test.DataObject_Test;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +23,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import pensumcreator.pensumfirebase.Pensum.Pensum_Fragment;
+import pensumcreator.pensumfirebase.StorageDataModels.DataObject;
+import pensumcreator.pensumfirebase.StorageDataModels.InternalStorage;
+import pensumcreator.pensumfirebase.StorageDataModels.LitteratureModel;
+import pensumcreator.pensumfirebase.StorageDataModels.PensumModel;
+import pensumcreator.pensumfirebase.Test.DataObject_Test;
 
 import static pensumcreator.pensumfirebase.Adapter.Litterature_Adapter.deleteState;
 import static pensumcreator.pensumfirebase.StorageDataModels.DataObject.litteratureData;
@@ -49,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "LOG_TAG";
     DataObject data;
+
+
+    private static final String First_launch = "IsItFirstLaunch";
+    private static final String Pref_file_name = "PensumCreator";
+
+
 
     /*
      * Camera keys for permission to use the camera.
@@ -93,6 +98,21 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().show();
 
+        if (!getIsFirstTimeLaunch(this, First_launch)) {
+            Test_disabled = true;
+            pensumlist_fragment = new Pensum_Fragment();
+            getSupportFragmentManager().beginTransaction().
+                    replace(R.id.MiddleContainer, pensumlist_fragment).
+                    commit();
+        } else {
+            setFirstTimeLaunch(this, First_launch, false);
+            pensumlist_fragment = new Pensum_Fragment();
+            getSupportFragmentManager().beginTransaction().
+                    replace(R.id.MiddleContainer, pensumlist_fragment).
+                    commit();
+
+        }
+
         /*
          * Boolean to determine data & storage.
          */
@@ -118,10 +138,8 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString(choosen_pensum_to_expand, pensum_expand_key);
 
-        pensumlist_fragment = new Pensum_Fragment();
-        getSupportFragmentManager().beginTransaction().
-                replace(R.id.MiddleContainer, pensumlist_fragment).
-                commit();
+
+
 
     }
 
@@ -140,6 +158,20 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences myPrefs = context.getSharedPreferences(CAMERA_PREF,
                 Context.MODE_PRIVATE);
         return (myPrefs.getBoolean(key, false));
+    }
+
+    public void setFirstTimeLaunch (MainActivity context, String key, Boolean isFirstTime) {
+        SharedPreferences myPrefs = context.getSharedPreferences(Pref_file_name,
+                context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = myPrefs.edit();
+        prefsEditor.putBoolean(key, isFirstTime);
+        prefsEditor.commit();
+    }
+
+    public boolean getIsFirstTimeLaunch(Context context, String key) {
+        SharedPreferences myPrefs = context.getSharedPreferences(Pref_file_name,
+                context.MODE_PRIVATE);
+        return myPrefs.getBoolean(First_launch, true);
     }
 
     public static void startInstalledAppDetailsActivity(final Activity context) {

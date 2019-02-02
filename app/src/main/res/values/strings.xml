@@ -58,4 +58,5 @@
     <string name="errorTitle">Ooops !</string>
     <string name="errorNameMissing">You need to give your product a name</string>
     <string name="errorTextRecognizer">Couldn\'t find any tekst on the image!</string>
+    <string name="loading">loading</string>
 </resources>

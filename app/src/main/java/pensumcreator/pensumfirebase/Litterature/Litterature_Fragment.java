@@ -1,9 +1,7 @@
 package pensumcreator.pensumfirebase.Litterature;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,21 +9,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import pensumcreator.pensumfirebase.Adapter.Litterature_Adapter;
-import pensumcreator.pensumfirebase.ExpandebleMenu;
-import pensumcreator.pensumfirebase.Pensum.AddPensum_Fragment;
-import pensumcreator.pensumfirebase.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import pensumcreator.pensumfirebase.Adapter.Litterature_Adapter;
+import pensumcreator.pensumfirebase.ExpandebleMenu;
+import pensumcreator.pensumfirebase.R;
 
+import static pensumcreator.pensumfirebase.Adapter.Litterature_Adapter.deleteState;
 import static pensumcreator.pensumfirebase.MainActivity.PENSUM_BUNDLE_KEY;
-import static pensumcreator.pensumfirebase.MainActivity.TAG;
 import static pensumcreator.pensumfirebase.MainActivity.item;
 
 public class Litterature_Fragment extends Fragment implements View.OnClickListener{
@@ -139,6 +134,7 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
+
         if (v.getId() == R.id.expand_menu) {
             onFabClick(v);
             return;
@@ -146,7 +142,12 @@ public class Litterature_Fragment extends Fragment implements View.OnClickListen
 
         switch (v.getId()) {
             case R.id.add_litterature:
-                AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
+
+                deleteState = false;
+                item.setVisible(false);
+
+                ViewPager_Fragment nextFrag = new ViewPager_Fragment();
+                //AddLitterature_Fragment nextFrag = new AddLitterature_Fragment();
 
                 AppCompatActivity activity = (AppCompatActivity) getContext();
                 activity.getSupportFragmentManager().beginTransaction()

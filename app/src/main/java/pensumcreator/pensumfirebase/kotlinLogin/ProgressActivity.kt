@@ -6,6 +6,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
+import pensumcreator.pensumfirebase.R
 
 open class ProgressActivity: AppCompatActivity() {
 
@@ -16,7 +17,7 @@ open class ProgressActivity: AppCompatActivity() {
 
     fun showProgressDialog() {
 
-      //  progressDialog.setMessage(getString(R.string.loading)) //set string
+        progressDialog.setMessage(getString(R.string.loading))
         progressDialog.isIndeterminate = true
         progressDialog.show()
 
